@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="variants.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3953">
+      <stop
+         style="stop-color:#8c3071;stop-opacity:0.49803922;"
+         offset="0"
+         id="stop3955" />
+      <stop
+         style="stop-color:#8c3071;stop-opacity:1;"
+         offset="1"
+         id="stop3957" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3953"
+       id="radialGradient3959"
+       cx="478.55075"
+       cy="323.98569"
+       fx="478.55075"
+       fy="323.98569"
+       r="214.42143"
+       gradientTransform="matrix(0.81423639,0.58053347,-0.50634597,0.71018354,205.10969,-128.39898)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="529.0647"
+     inkscape:cy="714.28571"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="681"
+     inkscape:window-x="0"
+     inkscape:window-y="33"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="fon">
+    <rect
+       style="color:#000000;fill:#dcdcdc;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.75756115;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4030"
+       width="458.06387"
+       height="365.20673"
+       x="130.25378"
+       y="109.75883"
+       inkscape:export-filename="/opt/lampp/htdocs/qtest.loc/www/img/qtest/text_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <rect
+       style="fill:url(#radialGradient3959);fill-opacity:1;stroke:#000000;stroke-width:1.70000005;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985"
+       width="427.14285"
+       height="314.28571"
+       x="144.28572"
+       y="116.6479"
+       inkscape:export-filename="/opt/lampp/htdocs/qtest.loc/www/img/qtest/text_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="quest"
+     style="display:inline">
+    <rect
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:1.70000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3756"
+       width="310.00003"
+       height="120.00002"
+       x="210"
+       y="146.6479"
+       ry="21.428572"
+       inkscape:export-filename="/opt/lampp/htdocs/qtest.loc/www/img/qtest/text_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:54.79841232px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="324.87631"
+       y="170.29263"
+       id="text3760"
+       sodipodi:linespacing="125%"
+       transform="scale(0.72994815,1.3699603)"
+       inkscape:export-filename="/opt/lampp/htdocs/qtest.loc/www/img/qtest/text_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3762"
+         x="324.87631"
+         y="170.29263">What is it...</tspan></text>
+    <rect
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#dad4d4;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3756-2"
+       width="365.58679"
+       height="95.5868"
+       x="178.63518"
+       y="312.56879"
+       ry="0"
+       inkscape:export-filename="/opt/lampp/htdocs/qtest.loc/www/img/qtest/text_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="190"
+       y="360.93362"
+       id="text4051"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/opt/lampp/htdocs/qtest.loc/www/img/qtest/text_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4053"
+         x="190"
+         y="360.93362">This is a ...</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="cursor">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.72958481px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
+       d="m 401.44472,326.68361 c 16.53913,0 16.53913,0 16.53913,0"
+       id="path4093"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/opt/lampp/htdocs/qtest.loc/www/img/qtest/text_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.72958481px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
+       d="m 401.44472,364.68361 c 16.53913,0 16.53913,0 16.53913,0"
+       id="path4093-0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/opt/lampp/htdocs/qtest.loc/www/img/qtest/text_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
+       d="m 409.53572,364.89789 -0.35715,-38.21428"
+       id="path4131"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/opt/lampp/htdocs/qtest.loc/www/img/qtest/text_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="user"
+     style="display:inline">
+    <image
+       y="324.64792"
+       x="450.85715"
+       id="image4201"
+       xlink:href="data:image/png;base64,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
+AABJRU5ErkJggg==
+"
+       height="145.42857"
+       width="132.57143"
+       inkscape:export-filename="/opt/lampp/htdocs/qtest.loc/www/img/qtest/text_test.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>

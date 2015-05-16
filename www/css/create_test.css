@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+.type_test_ill img {
+	width:240px;
+}
+.type_test_ill {
+	margin-left:8px;
+}
+.type_test_item {
+	font-size:24px;
+	margin-top:70px;
+	
+}
+.create_test_radio_item {	
+}
+
+.compare_type {
+	background-color: white;
+	display:inline-block;
+	margin-left:10px;
+	margin-bottom:10px;
+	padding:0px 8px;
+	border: 1px solid black;
+}
+.type_compare_help {
+	margin-left:4px;
+	margin-top:2px;
+}
+.type_compare_item label, .type_compare_item input{
+	line-height:26px;
+	vertical-align: middle;
+}
+
+.create_test_title input[type=text], .create_test_sdesc textarea, .create_test_description textarea, 
+.create_test_info textarea {
+	width:98%;
+	resize:vertical;
+}
+}

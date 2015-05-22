@@ -278,7 +278,7 @@
 					footerH = $('body footer').last().height(),
 					h,
 					div = $('<div>&nbsp;</div>');
-				if (vH > contentH) {
+				if (vH > contentH && $('body footer')[0]) {
 					//h = vH - contentH - footerH - tbarH;
 					h = vH - $('body footer').last()[0].offsetTop  - footerH;
 					$('body footer').last().before(div);

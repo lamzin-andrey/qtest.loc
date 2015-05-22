@@ -16,5 +16,8 @@ CREATE TABLE IF NOT EXISTS `u_tests`
    is_published INTEGER DEFAULT 0 COMMENT 'Опубликован или нет.',
    date_create DATETIME COMMENT 'время создания',
    delta INTEGER COMMENT 'Позиция. ',
-   UNIQUE KEY `idx_d_name` (`display_name`)
+   folder VARCHAR(7) COMMENT 'Каталог файлов от files',
+   reading_uri VARCHAR(255) COMMENT 'Часть url которая транслитируется из display_name',
+   UNIQUE KEY `idx_d_name` (`display_name`),
+   UNIQUE KEY `idx_ruri` (`reading_uri`)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;

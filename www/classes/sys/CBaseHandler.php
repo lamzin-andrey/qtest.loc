@@ -1,4 +1,4 @@
-<?
+<?php
 class CBaseHandler {
 	/** сообщения об ошибках*/
 	public $errors = array();

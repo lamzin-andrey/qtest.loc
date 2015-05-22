@@ -1,4 +1,4 @@
-<?
+<?php
 $lang['sec.'] = 'сек.';
 $lang['Welcome'] = 'Добро пожаловать';
 $lang['Next'] = 'Далее';
@@ -192,3 +192,7 @@ $lang['GAME_OVER'] = 'GAME OVER';
 $lang['ctest_v_is_right'] = 'Правильно!';
 $lang['ctest_v_is_fail'] = 'Ошибка!';
 $lang['Create_test_form_title'] = 'Создать тест';
+$lang['Exit_from_test'] = 'Exit_from_test';
+$lang['About_author'] = 'About_author';
+$lang['Talk_about'] = 'Talk_about';
+$lang['Balls'] = 'Balls';

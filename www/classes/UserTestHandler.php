@@ -5,6 +5,7 @@ class UserTestHandler extends CBaseHandler{
 
     public function __construct($app) {
         parent::__construct();
+        $this->_getQuestions($this->_a_url);
         if ($this->_testExists($this->_a_url)) {
             $app->title( $this->metadata['display_name'] );
             $webfile_a = $this->metadata['webfile_a'];
@@ -20,6 +21,26 @@ class UserTestHandler extends CBaseHandler{
             //set screen test not found
             $this->css[] = WEB_ROOT . '/css/testnotfound.css?v=' . STATIC_VERSION;
             $this->right_inner = APP_ROOT . '/tpl/testnotfound.tpl.php';
+        }
+    }
+    /**
+     * @description route /tests/question/{id}
+    */
+    private function _getQuestions($a_url) {
+        if (a($a_url, 2) == 'questions' && $id = intval( a($a_url, 3) )) {
+            $sql_query = "SELECT t_type FROM u_tests WHERE id = {$id}";
+            $type = dbvalue($sql_query);
+            $sql_query = "SELECT question AS q, answer AS a FROM u_tests_content WHERE u_tests_id= {$id} AND is_deleted = 0 ORDER BY delta, id";
+            if ($type == 0) {
+                $sql_query = "SELECT question AS q, answer AS a, r_answer AS r FROM u_tests_content WHERE u_tests_id= {$id} AND is_deleted = 0 ORDER BY delta, id";
+            }
+            $data = query($sql_query, $nR);
+            if ($type == 0) {
+                for ($i = 0; $i < $nR; $i++) {
+                    $data[$i]['a'] = json_decode( $data[$i]['a'] );
+                }
+            }
+            json_ok('list', $data);
         }
     }
     /**

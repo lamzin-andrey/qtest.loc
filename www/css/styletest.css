@@ -3,7 +3,7 @@
 .left {float:left;}
 .scroll-y {overflow-y:scroll;}
 .scroll-x {overflow-x:scroll;}
-.center {background-color: white; margin:0 auto; padding:0px 0px;}
+.center {margin:0 auto; padding:0px 0px;}
 .hide {display:none !important}
 .pload {opacity:0; width:1px; height:1px;position:absolute;left:-2px;top:-2px;z-index:1;}
 .bg-rose {background-color: #FFB0B9; color:#5F3F14;}

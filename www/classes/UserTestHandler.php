@@ -6,6 +6,7 @@ class UserTestHandler extends CBaseHandler{
     public function __construct($app) {
         parent::__construct();
         if ($this->_testExists($this->_a_url)) {
+            $app->title( $this->metadata['display_name'] );
             $webfile_a = $this->metadata['webfile_a'];
             $data = $this->metadata;
             //set param as innner

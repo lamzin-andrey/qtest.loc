@@ -22,16 +22,16 @@
             <li>
                 <span>
                     <?=H::img(WEB_ROOT . '/img/qtest/star.png', $lang['Balls'], array('style' => 'width:24px; height:24px; vertical-align:top;'));?>
-                    0
+                    <i id="ut_main_tscore">0</i>
                 </span>
             </li>
             <li>
-                <a href="<?=WEB_ROOT?>/test_comments/<?=$handler->metadata['id']?>/">
+                <a href="javascript:alert('Комментирование пока недоступно');"><?php /* href="<?=WEB_ROOT?>/test_comments/<?=$handler->metadata['id']?>/" */?>
                     <?=H::img(WEB_ROOT . '/img/std/user_say.png', $lang['Talk_about'], array('style' => 'width:24px; height:24px; vertical-align:top;'));?>
                 </a>
             </li>
             <li>
-                <a href="<?=WEB_ROOT?>/users/<?=$handler->metadata['uid']?>/">
+                <a href="javascript:alert('Просмотр профиля пользователя пока недоступен');"> <?php /* href="<?=WEB_ROOT?>/users/<?=$handler->metadata['uid']?>/" */ ?>
                     <?=H::img(WEB_ROOT . '/img/qtest/userinfo_4801.png', $lang['About_author'], array('style' => 'width:24px; height:24px; vertical-align:top;'));?>
                     <?=$handler->metadata['user_name'] . ' ' . $handler->metadata['user_last_name']?>
                 </a>

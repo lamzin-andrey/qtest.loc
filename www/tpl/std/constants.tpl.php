@@ -1,6 +1,8 @@
 <script type="text/javascript">
 <?
 $list = get_defined_constants();
+
+
 foreach($list as $name => $value){
 	$print = 1;
 	foreach ($STD_CONST_PREFIXES as $exclude){

@@ -152,6 +152,9 @@ body {padding:0px 4px; margin:0px;
     padding: 0 10px 0 6px;
     text-decoration: none;
 }
+.toolbar ul li a img {
+    border:none;
+}
 .toolbar ul li span i {
     font-style:normal;
 }

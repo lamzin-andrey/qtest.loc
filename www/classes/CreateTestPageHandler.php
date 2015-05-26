@@ -21,7 +21,11 @@ class CreateTestPageHandler extends CBaseHandler{
             }
         }
         private function _saveTestData() {
-            $data = utils_mapForTable('u_tests');
+            $data = db_mapPost('u_tests');
+            echo '<pre>';
+            print_r($data);
+            echo '</pre>';
+            die( 'FILE = ' . __FILE__ . ', LINE = ' . __LINE__);
         }
 	private function _setInner() {
 		$step = a($this->_a_url, 2);

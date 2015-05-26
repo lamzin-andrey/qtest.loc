@@ -685,10 +685,3 @@ function ilistFromString($key, $separator = ',', $scope = 'REQUEST'){
 	}
 	return $buf;
 }
-/**
-* @desc Изменить значение переменной var в request_uri
-* @param string $table
-**/
-function utils_mapForTable($table, $scope = 'REQUEST') {
-    
-}

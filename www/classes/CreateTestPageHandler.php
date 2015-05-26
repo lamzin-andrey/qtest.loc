@@ -11,9 +11,18 @@ class CreateTestPageHandler extends CBaseHandler{
 		$this->js[] = 'simple';
 		$this->right_inner = 'create_test.tpl.php';
 		parent::__construct();
+                $this->_processRequest();
 		$this->_setInner();
 	}
-	
+	private function _processRequest() {
+            if (req('action') == 'create') {
+                $test_id = $this->_saveTestData();
+                $this->_createTestFiles($test_id);
+            }
+        }
+        private function _saveTestData() {
+            $data = utils_mapForTable('u_tests');
+        }
 	private function _setInner() {
 		$step = a($this->_a_url, 2);
 		$default_step = 'select_test_type';

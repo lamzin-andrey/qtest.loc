@@ -4,7 +4,7 @@
 	<header>
 		<h2><?=$lang['Test_titles'] ?></h2>
 	</header>
-	<form method="GET" action="<?=WEB_ROOT?>/create_test/set_name" >
+	<form method="POST" action="<?=WEB_ROOT?>/create_test/" >
 		<? FV::$obj = $handler; ?>
 		<div class="create_test_title">
 			<label class="block" for="display_name"><?php echo $lang["test_title"]; ?></label>
@@ -99,6 +99,7 @@
 		<div class="create_test_skip_error_message"><?=FV::labinp('one_answer_fail_message', $lang['Test_one_answer_fail_message'], $lang['ctest_v_is_fail']); ?></div>
 		<div class="create_test_skip_gameover_message"><?=FV::labinp('gameover_message', $lang['Test_game_over_message'], $lang['GAME_OVER']); ?></div>
 		<div class="right">
+                        <?=FV::hid("action", "create"); ?>
 			<?=FV::sub('next_step_1', $lang['Next']); ?>
 		</div>
 		<div class="clearfix"></div>

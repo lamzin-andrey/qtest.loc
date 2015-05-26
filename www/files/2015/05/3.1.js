@@ -79,11 +79,16 @@
 		UserTest.quests.push({q:"Вы хотите сделать активацию вновь зарегистрированного пользователя по email. Вам необходимо создать класс, реализующий некий интерфейс. Введите название интерфейса.", a:"UserProviderInterface"});
 		UserTest.quests.push({q:"Для достижения цели, поставленной в предыдущем вопросе, вы создали класс Acme/HelloBundle/Entity/CUserProvider.php. Введите название метода, в котором логично седлать проверку на то, активировал уже пользователь свой аккаунт или нет.", a:"loadUserByUsername"});
 		UserTest.quests.push({q:"Вы хотите сделать активацию вновь зарегистрированного пользователя по email. Вам необходимо зарегистрировать класс Acme/HelloBundle/Entity/CUserProvider как сервис. Введите название xml файла, в котором логично это сделать. (dirname/...)", a:"src/Acme/HelloBundle/Resources/config/services.xml"});
-		UserTest.quests.push({q:"Вы хотите сделать активацию вновь зарегистрированного пользователя по email, для этого вы создали класс, реализующий UserProviderInterface  и зарегистрировали его как сервис в xml файле. Вы хотите, чтобы в конструктор вашего класса передавался экземпляр класса Doctrine. Введите соответствующую строку xml конфигурации. (&lt;argument...)", a:"&lt;argument type=\"service\" id=\"doctrine\" /&gt;"});
+		UserTest.quests.push({q:"Вы хотите сделать активацию вновь зарегистрированного пользователя по email, для этого вы создали класс, реализующий UserProviderInterface  и зарегистрировали его как сервис в xml файле. Вы хотите, чтобы в конструктор вашего класса передавался экземпляр класса Doctrine. Введите соответствующую строку xml конфигурации. (<argument...)", a:"<argument type=\"service\" id=\"doctrine\" />"});
 		UserTest.quests.push({q:"Вы хотите сделать активацию вновь зарегистрированного пользователя по email, для этого вы создали класс, реализующий UserProviderInterface  и зарегистрировали его как сервис с id=\"my_user_provider\". . Введите имя yml файла конфигурации, имя секции в этом файле, в которых вы укажете необходимость использовать ваш провайдер и yaml конфигурацию одной строкой. Формат ответа: имя файла (app/...), имя секции, provider: { ключ: значение }", a:"app/config/security.yml, providers, provider: { id: my_user_provider }"});
 		UserTest.quests.push({q:"Для достижения цели, ок оторой шла речь в предыдущих пяти вопросах, класс модели пользователя должен реализовывать два интерфейса. Перечислите их через запятую", a:"UserInterface, EquatableInterface"});
 		UserTest.quests.push({q:"Где проще всего посмотреть пример реализации UserProviderInterface? Ответ - имя класса, входящего в symfony 2.6.6 \"из коробки\"", a:"EntityUserProvider"});
 		UserTest.quests.push({q:"Вы набираете код в контроллере. Введите строку php кода, позволяющую получить параметр path маршрута my_personal_route. ($this->...;)", a:"$this->get(\"router\")->getRouteCollection()->get(\"my_personal_route\");"});
+		UserTest.quests.push({q:"Вы с помощью doctrine создали класс сущности CUser в бандле AcmeHelloBundle и одноименную таблицу в базе данных. Теперь вы хотите получить общее количество пользователей подтвердивших свой email, используя SQL запрос \"SELECT COUNT(u.id) FROM CUser AS u WHERE u.email_verify = 1;\" который вы планируете передать в метод EntityManager::createQuery(); Выполнится ли запрос? (Да/Нет)", a:"Нет"});
+		UserTest.quests.push({q:"Что на что надо заменить в запросе \"SELECT COUNT(u.id) FROM CUser AS u WHERE u.email_verify = 1;\" для успешного использования метода EntityManager::createQuery();  (* на *)", a:"CUser на AcmeHelloBundle:CUser"});
+		UserTest.quests.push({q:"Какой метод логично испаользовать для получения результата запроса из последних двух вопросов? (methodName();)", a:"getSingleResult();"});
+		UserTest.quests.push({q:"Укажите тип данных php или класс Symfony 2.6 который вернет метод getSingleResult()", a:"array"});
+		UserTest.quests.push({q:"Вы выполнили код $res = $em->createQuery(\"SELECT COUNT(u.id) FROM AcmeHelloBundle:CUser AS u WHERE u.email_verify = 1;\")->getSingleResult(); В каком элементе массива $res содержится запрошеное количество? (Ответ - число)", a:"1"});
 		
 
 		//UserTest.randomize = true; //вопросы будут выводится случайным образом
@@ -108,7 +113,7 @@
 				if ( $('#ut_main_tanswer')[0] ) {
 					$('#ut_main_tanswer')[0].focus();
 				}
-				$("#ut_main_tquest").html(v);
+				$("#ut_main_tquest").text(v);
 				cover();
 				if (String(rule) == "undefined") {
 					return;

@@ -101,6 +101,7 @@
 		UserTest.quests.push({q:"Вы хотите определить класс формы для редактирования данных пользователя AcmeHelloBundle:CUser, чтобы использовать формы симфони в вашем проекте. Введите инструкции use подключающие необходимые компоненты в классе CUserType.", a:"use Symfony\\Component\\Form\\AbstractType;\nuse Symfony\\Component\\Form\\FormBuilderInterface;"});
 		UserTest.quests.push({q:"Вы хотите определить класс формы CUserType для редактирования данных пользователя AcmeHelloBundle:CUser, чтобы использовать формы симфони в вашем проекте. Перечислите названия двух необходимых к реализации методов в классе CUserType.", a:"buildForm, getName"});
 		UserTest.quests.push({q:"Перечислите типы аргументов метода buildForm.", a:"FormBuilderInterface, array"});
+		UserTest.quests.push({q:"Вы хотите, чтобы имя пользователя было не менее 2 символов и не более 15-ти. Введите сответствующую аннотацию.", a:"@Assert\Length(min=2,max=15)"});
 		UserTest.quests.push({q:"Вы хотите запретить доступ пользователям на страницу /profile. Введите имя секции в security.yml и строку, которую надо туда добавить, если метод getRoles в вашем классе польщователя возвращает одну роль ROLE_USER. (Имя секции, строка)", a:"access_control, -{ path: ^/profile, roles: ROLE_USER }"});
 			
 

@@ -103,6 +103,7 @@
 		UserTest.quests.push({q:"Перечислите типы аргументов метода buildForm.", a:"FormBuilderInterface, array"});
 		UserTest.quests.push({q:"Вы хотите, чтобы имя пользователя было не менее 2 символов и не более 15-ти. Введите сответствующую аннотацию.", a:"@Assert\\Length(min=2, max=15)"});
 		UserTest.quests.push({q:"Вы хотите запретить доступ пользователям на страницу /profile. Введите имя секции в security.yml и строку, которую надо туда добавить, если метод getRoles в вашем классе польщователя возвращает одну роль ROLE_USER. (Имя секции, строка)", a:"access_control, -{ path: ^/profile, roles: ROLE_USER }"});
+		UserTest.quests.push({q:"Вы хотите использовать REST подход при проектировании вашего сайта и для этого редактирование записей выполняете в ответ на запросы использующие метод PATCH. При этом вы используете формы и соответственно класс, реализующий FormBuilderIneface. Какая инструкция необходима в теле метода buildForm(FormBuilderInterface $builder, array $options), чтобы в контроллере вызов $form->handleRequest() работал корректно? ($builder->...;)", a:"$builder->setMethod(\"PATCH\");"});
 			
 
 		//UserTest.randomize = true; //вопросы будут выводится случайным образом

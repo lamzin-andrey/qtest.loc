@@ -19,6 +19,7 @@ class UserTestHandler extends CBaseHandler{
             $this->right_inner = APP_ROOT . $webfile_a . 'tpl.php';
         } else {
             //set screen test not found
+            utils_404();
             $this->css[] = WEB_ROOT . '/css/testnotfound.css?v=' . STATIC_VERSION;
             $this->right_inner = APP_ROOT . '/tpl/testnotfound.tpl.php';
         }

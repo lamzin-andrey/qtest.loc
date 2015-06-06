@@ -109,7 +109,9 @@
 		UserTest.quests.push({q:"Функциональные тесты. Введите строку php кода, возвращающую в переменную $client объект, позволяющий выполнять действия имитирующие действия браузера. ($client->...;)", a:"$client = static::createClient();"});
 		UserTest.quests.push({q:"Функциональные тесты. Вы хотите, чтобы код\n $form = $client->request(\"GET\", $routeName)-> selectButton($a)-> form($b, $c); $client->submit($form); отправил форму методом PATCH. Какая из переменных $a, $b, $c должна содержать строку \"PATCH\"? Ответ: $a, $b или $c.", a:"$c"});
 		UserTest.quests.push({q:"Функциональные тесты. $crawler = $client->request($method, $routeName);. Страница содержит форму с инпутами типа текст, первый содержит значение. Как получить это значение в переменную $s? ($s = ...;)", a:"$s = $crawler->filter(\"input[type=text]\")-> first()-> attr(\"value\");"});
-			
+		UserTest.quests.push({q:"Переводы. В какой секции файла config.yml содержится default_locale?", a:"framework"});
+		UserTest.quests.push({q:"Переводы. Укажите путь к yml файлу переводов сообщений для пакета AcmeHelloBundle от каталога src, локаль ru? (src/**.yml)", a:"src/Acme/HelloBundleResources/translations/messages.ru.yml"});
+		
 
 		//UserTest.randomize = true; //вопросы будут выводится случайным образом
 		/** @desc Объект реализующий интерфейс представления данных теста, через него тест взаимодействует с DOM */

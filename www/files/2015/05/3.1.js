@@ -104,6 +104,11 @@
 		UserTest.quests.push({q:"Вы хотите, чтобы имя пользователя было не менее 2 символов и не более 15-ти. Введите сответствующую аннотацию.", a:"@Assert\\Length(min=2, max=15)"});
 		UserTest.quests.push({q:"Вы хотите запретить доступ пользователям на страницу /profile. Введите имя секции в security.yml и строку, которую надо туда добавить, если метод getRoles в вашем классе польщователя возвращает одну роль ROLE_USER. (Имя секции, строка)", a:"access_control, -{ path: ^/profile, roles: ROLE_USER }"});
 		UserTest.quests.push({q:"Вы хотите использовать REST подход при проектировании вашего сайта и для этого редактирование записей выполняете в ответ на запросы использующие метод PATCH. При этом вы используете формы и соответственно класс, реализующий FormBuilderIneface. Какая инструкция необходима в теле метода buildForm(FormBuilderInterface $builder, array $options), чтобы в контроллере вызов $form->handleRequest() работал корректно? ($builder->...;)", a:"$builder->setMethod(\"PATCH\");"});
+		UserTest.quests.push({q:"Функциональные тесты. Напишите инструкцию use для подключения необходимого для их написания класса? (use ...;)", a:"use Symfony\\Bundle\\FrameworkBundle\\Test\\WebTestCase;"});
+		UserTest.quests.push({q:"Функциональные тесты. От какого класса должен наследоваться класс, релизующий тесты контроллера?", a:"WebTestCase"});
+		UserTest.quests.push({q:"Функциональные тесты. Введите строку php кода, возвращающую в переменную $client объект, позволяющий выполнять действия имитирующие действия браузера. ($client->...;)", a:"$client = static::createClient();"});
+		UserTest.quests.push({q:"Функциональные тесты. Вы хотите, чтобы код\n $form = $client->request(\"GET\", $routeName)-> selectButton($a)-> form($b, $c); $client->submit($form); отправил форму методом PATCH. Какая из переменных $a, $b, $c должна содержать строку \"PATCH\"? Ответ: $a, $b или $c.", a:"$c"});
+		UserTest.quests.push({q:"Функциональные тесты. $crawler = $client->request($method, $routeName);. Страница содержит форму с инпутами типа текст, первый содержит значение. Как получить это значение в переменную $s? ($s = ...;)", a:"$s = $crawler->filter(\"input[type=text]\")-> first()-> attr(\"value\");"});
 			
 
 		//UserTest.randomize = true; //вопросы будут выводится случайным образом

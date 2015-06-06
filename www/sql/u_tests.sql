@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `u_tests`
    delta INTEGER COMMENT 'Позиция. ',
    folder VARCHAR(7) COMMENT 'Каталог файлов от files',
    reading_uri VARCHAR(255) COMMENT 'Часть url которая транслитируется из display_name',
+   options TEXT COMMENT 'JSON Прочие опции теста, не вошедшие в структуру таблицы',
    UNIQUE KEY `idx_d_name` (`display_name`),
    UNIQUE KEY `idx_ruri` (`reading_uri`)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;

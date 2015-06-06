@@ -17,6 +17,11 @@ class CApplication extends CBaseApplication {
                     $this->handler = $h = $this->_load('UserTestHandler');
                     return;
                 }
+                if ( strpos($url, $work_folder . '/create_test') !== false ) {
+                    $this->layout = 'tpl/simple_page.master.tpl.php';
+                    $this->handler = $h = $this->_load('CreateTestPageHandler');
+                    return;
+                }
 		switch ($url) {
 			case $work_folder . '/':
 				$this->layout = 'tpl/simple_page.master.tpl.php';

@@ -32,7 +32,8 @@
             <div class="clearfix"></div>
             <div class="tright ut_buttons">
                 <input type="button" id="ut_main_tOK" value="OK">
-                {{INPUT_SKIP}}
+                <input type="button" id="ut_main_tSkip" value="Пропустить">
+
             </div>
 	</div>
 </div>

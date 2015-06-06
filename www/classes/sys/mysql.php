@@ -64,9 +64,6 @@ function dbvalue($cmd) {
     mysql_close($link);
     return false;
 }
-/**
- * @return $link
-*/
 function setConnection() {
 	$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die('Error connect to mysql');
 	mysql_select_db(DB_NAME) or die('Error select db ' . DB_NAME);
@@ -91,6 +88,124 @@ function db_mapPost($table) {
     return _db_map_request($table, $_POST);
 }
 /**
+* @desc Привести значения полей в REQUEST к типам одноименных полей в таблице $table
+* @param string $table
+**/
+function db_mapReq($table) {
+    return _db_map_request($table, $_REQUEST);
+}
+/**
+* @desc Привести значения полей в REQUEST к типам одноименных полей в таблице $table
+* @param string $table
+**/
+function db_mapGet($table) {
+    return _db_map_request($table, $_GET);
+}
+/**
+* @desc Заменяет все кавычки в строке на html entity
+* @return string $s
+**/
+function db_safeString(&$s) {
+    $s = htmlspecialchars($s, ENT_QUOTES);
+    return $s;
+}
+/**
+* @desc Создает INSERT запрос из полей одновременно присутствующих в $data и $tableName
+* @param assocArray $data
+* @param string $tableName
+* @param assocArray $config ключ_в_data => поле_в_tableName
+* @param assocArray &$options опции, которые есть в $data, но нет в $tableName
+**/
+function db_createInsertQuery($data, $tableName, $config = array(), &$options = null) {
+    $struct = _db_load_struct_for_table($tableName);
+    _db_set_std_values($struct, $data, $tableName);
+    $sql_query = 'INSERT INTO {TABLE} 
+            ({FIELDS}) 
+            VALUES({VALUES});';
+    $fields = array();
+    $values = array();
+    $count = 0;
+    $options = array();
+    foreach ($data as $key => $item) {
+        if (isset($struct[$key]) || (isset($config[$key]) && isset( $struct[ $config[$key] ] ) ) ) {
+            if (isset($struct[$key])) {
+                $fields[] = '`'. $key .'`';
+            } else {
+                $fields[] = '`'. $config[$key] .'`';
+            }
+            $values[] = "'{$item}'";
+            $count++;
+        } else {
+            $options[$key] = $item;
+        }
+    }
+    if ($count) {
+        $sql_query = str_replace('{TABLE}', $tableName, $sql_query);
+        $sql_query = str_replace('{FIELDS}', join(',', $fields), $sql_query );
+        $sql_query = str_replace('{VALUES}', join(',', $values), $sql_query );
+        return $sql_query;
+    }
+    return false;
+}
+/**
+* @desc Создает INSERT запрос из полей одновременно присутствующих в $data и $tableName добавляет в запрос плейсхолдеры {EXT_FIELDS} и {EXT_VALUES} которые позволяют добавлять еще значения
+* @param assocArray $data
+* @param string $tableName
+* @param assocArray $config ключ_в_data => поле_в_tableName
+* @param assocArray &$options опции, которые есть в $data, но нет в $tableName
+**/
+function db_createInsertQueryExt(&$data, $tableName, $config = array(), &$options = null) {
+    $struct = _db_load_struct_for_table($tableName);
+    _db_set_std_values($struct, $data, $tableName);
+    $sql_query = 'INSERT INTO {TABLE} 
+            ({FIELDS}{EXT_FIELDS}) 
+            VALUES({VALUES}{EXT_VALUES});';
+    $fields = array();
+    $values = array();
+    $count = 0;
+    $options = array();
+    foreach ($data as $key => $item) {
+        if (isset($struct[$key]) || (isset($config[$key]) && isset( $struct[ $config[$key] ] ) ) ) {
+            if (isset($struct[$key])) {
+                $fields[] = '`'. $key .'`';
+            } else {
+                $fields[] = '`'. $config[$key] .'`';
+            }
+            $values[] = "'{$item}'";
+            $count++;
+        } else {
+            $options[$key] = $item;
+        }
+    }
+    if ($count) {
+        $sql_query = str_replace('{TABLE}', $tableName, $sql_query);
+        $sql_query = str_replace('{FIELDS}', join(',', $fields), $sql_query );
+        $sql_query = str_replace('{VALUES}', join(',', $values), $sql_query );
+        return $sql_query;
+    }
+    return false;
+}
+
+/**
+ * @desc set date_create, delta, uid, user_id if it exists in struct and no set in data
+*/
+function _db_set_std_values($struct, &$data, $tableName) {
+    if (isset($struct['date_create']) && !isset($data['date_create'])) {
+        $data['date_create'] = now();
+    }
+    if (isset($struct['uid']) && !isset($data['uid'])) {
+        $data['uid'] = CApplication::getUid();
+    }
+    if (isset($struct['user_id']) && !isset($data['user_id'])) {
+        $data['user_id'] = CApplication::getUid();
+    }
+    if (defined('DB_DELTA_NOT_USE_TRIGGER') && isset($struct['delta']) && !isset($data['delta']) ) {
+        $sql_query = "SELECT MAX(delta) FROM {$tableName}";
+        $v = intval(dbvalue($sql_query));
+        $data['delta'] = $v + 1;
+    }
+}
+/**
 * @desc Привести значения полей в data к типам одноименных полей в таблице $table
 * @param string $table
 **/
@@ -103,24 +218,29 @@ function _db_map_request($table, $data = null) {
     foreach ($data as $field => $value) {
         if ($field_info = a($struct, $field)) {
             switch ($field_info['type']) {
-                case 'integer':
+                case 'int':
                 case 'bool':
                     $res[$field] = intval($value);
+                    if ($field_info['length'] == 1) {
+                            $res[$field] = $res[$field] ? 1 : 0;
+                    }
                     break;
-                case 'float':
+                case 'real':
                 case 'double':
                     $res[$field] = doubleval($value);
                     break;
                 case 'string':
-                    $res[$field] = substr($value, 0, $field_info['length']);
+                    $res[$field] = mb_substr($value, 0, $field_info['length'] / 3, 'UTF-8'); //TODO utf8_g_ci
                     $res[$field] = htmlspecialchars($res[$field], ENT_QUOTES);
                     break;
                 case 'blob':
-                    $res[$field] = htmlspecialchars($value, ENT_COMPAT);
+                    $res[$field] = htmlspecialchars($value, ENT_QUOTES);
                     break;
+                default:
+                    $res[$field] = htmlspecialchars($value, ENT_QUOTES);
             }
         } else {
-            $res[$field] = htmlspecialchars($value, ENT_COMPAT);
+            $res[$field] = htmlspecialchars($value, ENT_QUOTES);
         }
     }
     return $res;
@@ -136,7 +256,7 @@ function _db_load_struct_for_table($table) {
     $res = mysql_query("SELECT * FROM {$table} LIMIT 1");
     if ( mysql_error() ) {
         echo "Data Source <br>
-	    $tableName
+	    $table
 	    <br>
 	    was not found
 	    <br>

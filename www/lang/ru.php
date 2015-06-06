@@ -196,3 +196,6 @@ $lang['Exit_from_test'] = 'Exit_from_test';
 $lang['About_author'] = 'About_author';
 $lang['Talk_about'] = 'Talk_about';
 $lang['Balls'] = 'Balls';
+$lang['Error_question_required'] = 'Error_question_required';
+$lang['Error_answer_required'] = 'Error_answer_required';
+$lang['Question_Permission_denied'] = 'Question_Permission_denied';

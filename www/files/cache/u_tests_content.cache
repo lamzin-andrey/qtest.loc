@@ -1,0 +1,1 @@
+{"id":{"type":"int","length":11},"u_tests_id":{"type":"int","length":11},"question":{"type":"blob","length":196605},"answer":{"type":"blob","length":196605},"r_answer":{"type":"int","length":11},"is_deleted":{"type":"int","length":11},"date_create":{"type":"datetime","length":19},"delta":{"type":"int","length":11}}

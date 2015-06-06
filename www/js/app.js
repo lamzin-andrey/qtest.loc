@@ -419,28 +419,47 @@
 	//================/Авторизация======================================
 	
 	function initCreateTest() {
-		function _setGreenBg(div) {
-			$('.j-v_type, .j-t_type').removeClass('bg-light-green');
-			$(div).addClass('bg-light-green');
-		}
-		$('.j-v_type').click(
-			function() {
-				$('#variantTest').prop('checked', true);
-			}
-		).hover(
-			function(evt) {
-				_setGreenBg('.j-v_type');
-			}
-		);
-		$('.j-t_type').click(
-			function() {
-				$('#textTest').prop('checked', true);
-			}
-		).hover(
-			function(evt) {
-				_setGreenBg('.j-t_type');
-			}
-		);
+            //мета данные теста
+            function _setGreenBg(div) {
+                    $('.j-v_type, .j-t_type').removeClass('bg-light-green');
+                    $(div).addClass('bg-light-green');
+            }
+            $('.j-v_type').click(
+                    function() {
+                            $('#variantTest').prop('checked', true);
+                    }
+            ).hover(
+                    function(evt) {
+                            _setGreenBg('.j-v_type');
+                    }
+            );
+            $('.j-t_type').click(
+                    function() {
+                            $('#textTest').prop('checked', true);
+                    }
+            ).hover(
+                    function(evt) {
+                            _setGreenBg('.j-t_type');
+                    }
+            );
+            //страница вопросов
+            $('.question-save-button').click(
+                function(evt){
+                    function _onSuccess(data) {
+                       $('input[data-ord=' + data.ord + ']').val(data.id);
+                       //TODO зеленый back
+                    }
+                    var o = $(evt.target).parent(),
+                         h = o.find('input[type=hidden]').first();
+                    var data = {
+                        question: o.find('.j-question').first().val(),
+                        answer: o.find('.j-answer').first().val(),
+                        ord: h.data('ord'),
+                        id: h.val()
+                    };
+                    req(data, _onSuccess, defaultAjaxFail, 'save_question');
+                }
+            );
 	}
 	
 	function initScrollSaver() {

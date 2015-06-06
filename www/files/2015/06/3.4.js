@@ -2,7 +2,7 @@
  * Базовая конфигурация теста на знание Symphony2
  * */
 (function () {
-	var testId = {{TESTID}}, //tpl
+	var testId = 4, //tpl
 		lang = window.appLang;
 	$(document).ready(init);
 	function cover() {
@@ -16,9 +16,11 @@
 		/** @var глобальный объект - экземпляр базового конфигуратора теста по паттернам*/
 		window.UserTest = new TestEngine();
 		//Конфигурация
-		UserTest.configTime({{time_decision}});
-		UserTest.defaultScorePerAnswer = {{test_score}};
-		{{SKIP_BORDER}}
+		UserTest.configTime(60);
+		UserTest.defaultScorePerAnswer = 5;
+		UserTest.useSkipThershold = true;
+UserTest.skipThershold = 15;
+
 		//Вопросы
 		$.ajax({
 			dataType:'json',
@@ -93,7 +95,7 @@
 				}
 				$('#ut_main_tSuccess').html('Правильно!');
 				cover();
-				return {{time_show_success_message}};
+				return 3;
 			},
 			setFailOneAnswerScreen: function(answer){
 				$('#ut_main_tErr').text('Ошибка!');
@@ -101,7 +103,7 @@
 				$('#utMainTTPlayscreen').addClass('hide');
 				$('#utMainTTFailscreen').removeClass('hide');
 				cover();
-				return {{time_show_error_message}};
+				return 5;
 			},
 			setGameOverScreen: function(){
 				$('#ut_main_tErr').text('GAME OVER');
@@ -112,7 +114,7 @@
 						function () {
 							o.setBeginScreen();
 						},
-						{{time_show_game_over_message}}
+						5
 					);
 				}
 			},
@@ -136,7 +138,7 @@
 					function () {
 						o.setBeginScreen();
 					},
-					{{time_show_win_screen}}
+					15
 				);
 			},
 			setSkipButtonState: function(is_enabled) {

@@ -10,6 +10,7 @@ define ("APP_CACHE_FOLDER", APP_ROOT . '/files/cache'); //private
 define ("SUMMER_TIME", -3600);      //private (3)
 define ("DEV_MODE", true);          //public  (2)
 define ("STATIC_VERSION", '0');     //private (4)
+define ("DB_DELTA_NOT_USE_TRIGGER", '1');     //private (5)
 
 /*=============================DATABASE=================================*/
 define ("DB_HOST", 'localhost');
@@ -18,7 +19,7 @@ define ("DB_PASSWORD", '');
 define ("DB_NAME", 'qtest');
 /*=============================CUSTOM=================================*/
 define ("USE_GUID_SESSION", false);//public (3)
-$PRIVATE_CONSTANTS = array('APP_CACHE_FOLDER', 'APP_ROOT', 'APP_CACHE_LIFE', 'SUMMER_TIME', 'STATIC_VERSION', 'WORK_FOLDER', 'DB_HOST', 'DB_USER', 'DB_PASSWORD');
+$PRIVATE_CONSTANTS = array('DB_DELTA_NOT_USE_TRIGGER', 'APP_CACHE_FOLDER', 'APP_ROOT', 'APP_CACHE_LIFE', 'SUMMER_TIME', 'STATIC_VERSION', 'WORK_FOLDER', 'DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME');
 
 
 $STD_CONST_PREFIXES = array('TRUE', 'FALSE', 'NULL', 'SQL', 'NIL', 'SID', 'RADIX', 'NAN', 'CODESET', 'NOEXP', 'INF', 'ERA', 'CRNC',

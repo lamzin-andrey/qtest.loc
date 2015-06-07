@@ -33,9 +33,5 @@
 mh -> 
 classes/sys/CAbstractDbTree.php - исправил update во writeData, добавил параметр do_index, удалил дубль remove, добавил автоинкремент delta если надо
 classes/sys/mysql.php dbCreateInsertQuery, dbCreateInsertQueryExt
-config - очень осторожно, как всегда
-
-define ("DB_DELTA_NOT_USE_TRIGGER", '1');     //private (5)
-   и в $PRIVATE_CONSTANTS его и DB_NAME
    
-tpl/std/constants.tpl.php - как у меня этакое получилось раньше???
+

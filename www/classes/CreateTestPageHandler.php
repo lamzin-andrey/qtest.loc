@@ -21,7 +21,7 @@ class CreateTestPageHandler extends CBaseHandler{
                 if (a($this->_a_url, 3) == 'questions' && $id = intval(a($this->_a_url, 2))) {
                     $is_question_page = true;
                     $this->_question_list = new QuestionList($app);
-                    $this->_question_list->setUpdateOwnerCondition(null, null);
+                    $this->_question_list->setUpdateOwnerCondition($id, 'u_tests_id');
                     $uid = sess('uid');
                     $this->questions = $this->_question_list->getList("u_tests_content.u_tests_id = {$id}", 'question, answer', '', 1, '', '', false);
                     
@@ -122,7 +122,7 @@ class CreateTestPageHandler extends CBaseHandler{
          * @desc Сохранить вопрос
         */
         private function _saveQuestion() {
-            //check permission
+            //check permission TODO ОЧЕНЬ ПОХОЖЕ НА ДЫРУ!
             $test_id = intval(a($this->_a_url, 2));
             $v = dbvalue("SELECT uid FROM u_tests WHERE id = {$test_id}");
             if ($v == sess('uid')) {

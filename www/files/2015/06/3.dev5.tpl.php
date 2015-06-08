@@ -12,13 +12,17 @@
 	</div>
 	<div id="utMainTTDonescreen" class="hide">
             <div class="clearfix">&nbsp;</div>
-            <div id="ut_main_tSuccess" class="ut__box_shadow tnw_center tnw_done_msg">{{one_answer_success_message}}</div>
+            <div id="ut_main_tSuccess" class="ut__box_shadow tnw_center tnw_done_msg">Правильно!</div>
             <div class="clearfix">&nbsp;</div>
             <div id="ut_main_tSuccessInfo" class="ut__box_shadow tnw_center tnw_done_msg hide">Не забывайте переодически проходить этот тест по мере чтения новых статей на symfony-gu.ru.</div>
 	</div>
 	<div id="utMainTTFailscreen" class="hide">
-                <div id="ut_main_tErr">{{one_answer_fail_message}}</div>
-                {{RIGHT_ANSWER}}
+                <div id="ut_main_tErr">Ошибка!</div>
+                <div id="righAnswer">
+	<div id="ut_ral">Правильный ответ</div>
+	<div id="ut_main_tRa"></div>
+</div>
+
 	</div>
 	<div id="utMainTTPlayscreen" class="hide">
             <div class="clearfix">&nbsp;</div>
@@ -29,7 +33,8 @@
             <div class="clearfix"></div>
             <div class="tright ut_buttons">
                 <input type="button" id="ut_main_tOK" value="OK">
-                {{INPUT_SKIP}}
+                <input type="button" id="ut_main_tSkip" value="Пропустить">
+
             </div>
 	</div>
 </div>

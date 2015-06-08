@@ -16,7 +16,7 @@
 		/** @var глобальный объект - экземпляр базового конфигуратора теста по паттернам*/
 		window.UserTest = new TestEngine();
 		//Конфигурация
-		UserTest.configTime(60);
+		UserTest.configTime(120);
 		UserTest.defaultScorePerAnswer = 5;
 		UserTest.useSkipThershold = true;
 UserTest.skipThershold = 15;

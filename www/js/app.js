@@ -443,21 +443,94 @@
                     }
             );
             //страница вопросов
-            $('.question-save-button').click(
-                function(evt){
-                    function _onSuccess(data) {
-                       $('input[data-ord=' + data.ord + ']').val(data.id);
-                       //TODO зеленый back
-                    }
-                    var o = $(evt.target).parent(),
-                         h = o.find('input[type=hidden]').first();
-                    var data = {
-                        question: o.find('.j-question').first().val(),
-                        answer: o.find('.j-answer').first().val(),
-                        ord: h.data('ord'),
-                        id: h.val()
-                    };
-                    req(data, _onSuccess, defaultAjaxFail, 'save_question');
+            function _questionBlockSaveListener(evt){
+                function _onSuccess(data) {
+                   $('input[data-ord=' + data.ord + ']').val(data.id);
+                   //TODO зеленый back
+                }
+                var o = $(evt.target).parent(),
+                     h = o.find('input[type=hidden]').first();
+                var data = {
+                    question: o.find('.j-question').first().val(),
+                    answer: o.find('.j-answer').first().val(),
+                    ord: h.data('ord'),
+                    id: h.val()
+                };
+                req(data, _onSuccess, defaultAjaxFail, 'save_question');
+            }
+            function _questionBlockDeleteListener(evt){
+                function _onSuccess(data) {
+                   if (data.id) {
+                       $('input[value=' + data.id + ']').parent().remove();
+                   } else {
+                       showError(lang['default_error']);
+                   }
+                }
+                var o = $(evt.target).parent(),
+                     h = o.find('input[type=hidden]').first();
+                var data = {
+                    id: h.val()
+                };
+                req(data, _onSuccess, defaultAjaxFail, 'delete_question');
+            }
+            function _onSuccessSwapQuery(data) {
+                if (data.id && data.id2) {
+                    var inp_1 = $('input[value=' + data.id + ']') ,
+                        block_1 = inp_1.parent(),
+                        ta_1_1 = block_1.find('textarea').first(),
+                        ta_1_2 = block_1.find('textarea').last(),
+                        buf_1 = ta_1_1.val(),
+                        buf_2 = ta_1_2.val(),
+                        inp_2 = $('input[value=' + data.id2 + ']') ,
+                        block_2 = inp_2.parent(),
+                        ta_2_1 = block_2.find('textarea').first(),
+                        ta_2_2 = block_2.find('textarea').last();
+                    inp_1.val( data.id2 );
+                    inp_2.val(data.id);
+                    ta_1_1.val( ta_2_1.val() );
+                    ta_1_2.val( ta_2_2.val() );
+                    ta_2_1.val( buf_1 );
+                    ta_2_2.val( buf_2 );
+                } else if (data.id) {
+                    $('input[value=' + data.id + ']').parent().remove();
+                    showError(lang['Moved']);
+                }else {
+                    showError(lang['default_error']);
+                }
+                if (data.derror) {
+                    showError('Ppc');
+                }
+            }
+            function _sendSwapQuery(evt, action){
+                var o = $(evt.target).parent(),
+                     h = o.find('input[type=hidden]').first();
+                var data = {
+                    id: h.val()
+                };
+                req(data, _onSuccessSwapQuery, defaultAjaxFail, action);
+            }
+            function _questionBlockUpListener(evt){
+                _sendSwapQuery(evt, 'up_question');
+            }
+            function _questionBlockDownListener(evt){
+                _sendSwapQuery(evt, 'down_question');
+            }
+            $('.question-save-button').click(_questionBlockSaveListener);
+            $('.question-delete-button').click(_questionBlockDeleteListener);
+            $('.question-up-button').click(_questionBlockUpListener);
+            $('.question-down-button').click(_questionBlockDownListener);
+            $('#addNewQuest').click(
+                function () {
+                    var css_v = '.question-area', lastItem = $(css_v).last(),
+                        last = lastItem.html(),
+                        newBlock = $('<div class="' + css_v + '">' + last + '</div>');
+                    
+                    newBlock.find('input[type=hidden]').first().attr('data-ord',  +newBlock.find('input[type=hidden]').first().attr('data-ord') + 1).val(0);
+                    newBlock.find('textarea').val('');
+                    newBlock.insertAfter(lastItem);
+                    newBlock.find('.question-save-button').first().click(_questionBlockSaveListener);
+                    newBlock.find('.question-delete-button').first().click(_questionBlockDeleteListener);
+                    newBlock.find('.question-up-button').first().click(_questionBlockUpListener);
                 }
             );
 	}

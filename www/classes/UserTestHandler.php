@@ -52,10 +52,33 @@ class UserTestHandler extends CBaseHandler{
     private function _testExists($a_url) {
         // qtest.loc/tests/test_po_symfony_2
         $testuri = a($a_url, 2);
-        $row = dbrow("SELECT id, t_type, folder, uid, display_name, short_desc, description, info, folder FROM u_tests WHERE reading_uri = '{$testuri}' AND is_deleted = 0 AND is_accepted = 1 AND is_published = 1" );
+        $uid = sess('uid');
+        $uid = $uid ? $uid : 0;
+        $row = dbrow("SELECT id, t_type, folder, uid, display_name, short_desc, description, info, folder FROM u_tests WHERE reading_uri = '{$testuri}' AND is_deleted = 0 AND ( (is_accepted = 1 AND is_published = 1) OR uid = {$uid} )" );
         if (a($row, 'folder')) {
             $filename_a = APP_ROOT . '/files/' . $row['folder'] . '/' . $row['uid'] . '.' . $row['id'] . '.';
             $webfile_a = '/files/' . $row['folder'] . '/' . $row['uid'] . '.' . $row['id'] . '.';
+            $owner = false;
+            if ($uid == $row['uid']) {
+                $filename_a = APP_ROOT . '/files/' . $row['folder'] . '/' . $row['uid'] . '.dev' . $row['id'] . '.';
+                $webfile_a = '/files/' . $row['folder'] . '/' . $row['uid'] . '.dev' . $row['id'] . '.';
+                $owner = true;
+            }
+            //показываем для посетителя одобренную версию, для владельца - последнюю редакцию
+            if (file_exists("{$filename_a}js") && file_exists("{$filename_a}css") && file_exists("{$filename_a}tpl.php") ) {
+                $this->metadata = $row;
+                $this->metadata['filename_a'] = $filename_a;
+                $this->metadata['webfile_a'] = $webfile_a;
+                $user_info = dbrow("SELECT name, surname FROM users WHERE id = {$row['uid']}");
+                $this->metadata['user_name'] = a($user_info, 'name');
+                $this->metadata['user_last_name'] = a($user_info, 'surname');
+                return true;
+            }
+            if ($owner) {
+                //для владельца - пытемся найти одобренную, если неодобренной не существует.
+                $filename_a = APP_ROOT . '/files/' . $row['folder'] . '/' . $row['uid'] . '.' . $row['id'] . '.';
+                $webfile_a = '/files/' . $row['folder'] . '/' . $row['uid'] . '.' . $row['id'] . '.';
+            }
             if (file_exists("{$filename_a}js") && file_exists("{$filename_a}css") && file_exists("{$filename_a}tpl.php") ) {
                 $this->metadata = $row;
                 $this->metadata['filename_a'] = $filename_a;

@@ -9,7 +9,8 @@
 <?php
 	$links = array(
 		'/'  => 'Main_page',
-		WEB_ROOT . '/create_test/' => 'create_test'
+		WEB_ROOT . '/create_test/' => 'create_test',
+		WEB_ROOT . '/my/' => 'My_tests',
 	);
 ?>
 <ul class="inline left">

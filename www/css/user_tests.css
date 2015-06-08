@@ -1,0 +1,11 @@
+.test-left {
+    width:70%;
+}
+.test-state-div {
+    margin-bottom: 2px;
+}
+.test_info {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: dashed gray 1px;
+}

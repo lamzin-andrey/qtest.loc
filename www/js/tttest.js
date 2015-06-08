@@ -85,6 +85,11 @@
 			animateOpacity.dr = dir;
 			var int = setInterval(
 				function() {
+                                        if ($('#utMainTTPlayscreen').hasClass('hide')) {
+                                            ta.css('opacity', 0.1 );
+                                            clearInterval(int);
+                                            return;
+                                        }
 					var n = 0.1, lim = 1;
 					if (animateOpacity.dr == '-') {
 						n *= -1;
@@ -95,6 +100,7 @@
 					} else {
 						clearInterval(int);
 					}
+                                        
 				}, 10
 			);
 		}

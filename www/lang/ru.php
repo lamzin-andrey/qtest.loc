@@ -15,6 +15,13 @@ $lang['unauth_and_cookie_trouble'] = 'Вероятно, у вас отключе
 Если вы будете видеть эту ошибку снова и снова, включите их';
 $lang['warning_anonim_user'] = 'Ваш загруженный файл будет доступен из этого браузера пока длится текущая веб-сессия.
 Для более длительного хранения зарегистрируйтесь.';
+$lang['Accepted_moderator'] = 'Accepted_moderator';
+$lang['Not_accepted_moderator'] = 'Not_accepted_moderator';
+$lang['Is_publish'] = 'Is_publish';
+$lang['Not_publish'] = 'Not_publish';
+$lang['Up'] = 'Up';
+$lang['Down'] = 'Down';
+
 $lang['update'] = 'Обновить';
 $lang['remove'] = 'Удалить';
 $lang['fail_delete_user_script_try_update'] = 'Не удалось удалить скрипт, попробуйте обновить страницу и повторить попытку';
@@ -199,3 +206,14 @@ $lang['Balls'] = 'Balls';
 $lang['Error_question_required'] = 'Error_question_required';
 $lang['Error_answer_required'] = 'Error_answer_required';
 $lang['Question_Permission_denied'] = 'Question_Permission_denied';
+$lang['My_tests'] = 'My_tests';
+$lang['User_test_form_title'] = 'User_test_form_title';
+$lang['You_has_not_tests_now'] = 'You_has_not_tests_now';
+$lang['Edit_questions'] = 'Edit_questions';
+$lang['Test_is_variants'] = 'Test_is_variants';
+$lang['Test_is_text'] = 'Test_is_text';
+$lang['Select_type_compare_your_test'] = 'Select_type_compare_your_test';
+$lang['Save_and_get_questions'] = 'Save_and_get_questions';
+$lang['Add'] = 'Add';
+$lang['Open_test'] = 'Open_test';
+$lang['Moved'] = 'Moved';

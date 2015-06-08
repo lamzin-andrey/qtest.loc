@@ -7,7 +7,10 @@
         <textarea rows="5" class="left j-answer answer"><?=(isset($handler->questions[$i]) ? $handler->questions[$i]['answer'] : '')?></textarea>
         <input class="question-save-button" type="button" value="<?=$lang['Save']?>">
         <input class="question-delete-button" type="button" value="<?=$lang['Delete']?>">
+        <input class="question-up-button" type="button" value="///\\\">
+        <input class="question-down-button" type="button" value="\\\///">
         <div class="clearfix"></div>
     </div>
     <?php }?>
+    <?=FV::but('addNewQuest', $lang['Add'])?>
 </div>

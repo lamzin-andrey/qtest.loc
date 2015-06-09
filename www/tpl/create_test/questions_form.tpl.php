@@ -13,4 +13,7 @@
     </div>
     <?php }?>
     <?=FV::but('addNewQuest', $lang['Add'])?>
+    <?php if ($handler->paging): ?>
+    <?php include APP_ROOT . '/tpl/std/paging.tpl.php'; ?>
+    <?php endif ?>
 </div>

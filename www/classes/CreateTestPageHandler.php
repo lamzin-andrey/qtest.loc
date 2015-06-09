@@ -33,7 +33,8 @@ class CreateTestPageHandler extends CBaseHandler{
                     $this->_question_list = new QuestionList($app);
                     $this->_question_list->setUpdateOwnerCondition($id, 'u_tests_id');
                     $uid = sess('uid');
-                    $this->questions = $this->_question_list->getList("u_tests_content.u_tests_id = {$id}", 'question, answer', '', 1, '', '', false);
+                    $page = ireq('page') ? ireq('page') : 1;
+                    $this->questions = $this->_question_list->getList("u_tests_content.u_tests_id = {$id}", 'question, answer', '', $page, '', '', false);
                     
                     $this->per_page = $this->_question_list->getPerPage();
                     $this->paging = $this->_question_list->paging;

@@ -112,6 +112,13 @@
 		UserTest.quests.push({q:"Переводы. В какой секции файла config.yml содержится default_locale?", a:"framework"});
 		UserTest.quests.push({q:"Переводы. Укажите путь к yml файлу переводов сообщений для пакета AcmeHelloBundle от каталога src, локаль ru? (src/**.yml)", a:"src/Acme/HelloBundleResources/translations/messages.ru.yml"});
 		UserTest.quests.push({q:"Вы хотите импортировать настройки из файла parameters.yml бандла AcmeHelloBundle. Введите имя секции в файле /app/config.parameters.yml и соответствующую строку. (имя секции, строка импорта)", a:"imports, - { resource: @AcmeHelloBundle/Resources/config/parameters.yml } "});
+		UserTest.quests.push({q:"В вашем файле parameters.yml задана конфигурация: box1: { subbox1_1: { key1: value32 } }. Как получить значение key1 в контроллере? ($this->...;)", a: "$this->container->getParameter('box1')['subbox1_1']['key1'];"});
+		UserTest.quests.push({q:"Вы хотите использовать SwiftMailer для отправки письма в коде контроллера. Введите иеструкцию use пожключающую необходимый пакет.", a: "use Symfony\\Bundle\\Swiftmailerbundle\\SwiftmailerBundle;"});
+		UserTest.quests.push({q:"Как в контроллере получить объект для формирования сообщения? ($message = ...;)", a: "$message = SwiftMessage::newInstance();"});
+		UserTest.quests.push({q:"$message = SwiftMessage::newInstance(); Перечислите методы объекта message (без аргументов и круглых скобок), позволяющие задать тему письма, текст письма, адрес отправителя, адрес получателя.", a: "setSubject, setBody, setFrom, setTo"});
+		UserTest.quests.push({q:"В строке $s у вас содержится html код сообщения. Введите вызов метода $message->setBody позволяющий отправить вам сообщение в формате html  и кодировке UTF-8", a: "$message->setBody($s, \"text/html\", \"UTF-8\");"});
+		UserTest.quests.push({q:"Введите строку php кода, позволяющий отправить вам сообщение $message из контроллера.", a: "$this->get(\"mailer\")->send($message);"});
+		UserTest.quests.push({q:"Введите одной строкой yml конфигурацию swiftmailer, ксли ваш ящик user_admin@gmail.com а пароль 123456.", a: "swiftmailer: { transport: gmail, username: user_admin@gmail.com, password: 123456 }"});
 		
 
 		//UserTest.randomize = true; //вопросы будут выводится случайным образом

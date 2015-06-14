@@ -119,6 +119,7 @@
 		UserTest.quests.push({q:"В строке $s у вас содержится html код сообщения. Введите вызов метода $message->setBody позволяющий отправить вам сообщение в формате html  и кодировке UTF-8", a: "$message->setBody($s, \"text/html\", \"UTF-8\");"});
 		UserTest.quests.push({q:"Введите строку php кода, позволяющий отправить вам сообщение $message из контроллера.", a: "$this->get(\"mailer\")->send($message);"});
 		UserTest.quests.push({q:"Введите одной строкой yml конфигурацию swiftmailer, если ваш ящик user_admin@gmail.com, а пароль 123456.", a: "swiftmailer: { transport: gmail, username: user_admin@gmail.com, password: 123456 }"});
+		UserTest.quests.push({q:"Вы хотите наследоваться от шаблона src/Acme/HelloBundle/Resources/views/layout.html.twig. Введите сооответствующую строку twig шаблона. ({% ... %})", a: "{% extends 'AcmeHelloBundle::layout.html.twig' %}"});
 		
 
 		//UserTest.randomize = true; //вопросы будут выводится случайным образом

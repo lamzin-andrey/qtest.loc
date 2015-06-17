@@ -101,9 +101,7 @@ TestEngine.prototype.configTime = function(seconds) {
  * @param {Number} lives
 */
 TestEngine.prototype.configLives = function(lives) {
-	var l = lives;
-	this.beginLives = l;
-	this.lives = l;
+	this.beginLives = this.lives = lives;
 }
 /**
  * @desc Запуск таймера теста, логика вызова методов объекта в зависимотси от состояния процесса тестирования

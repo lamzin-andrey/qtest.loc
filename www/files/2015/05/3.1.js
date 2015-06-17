@@ -15,6 +15,7 @@
 		window.UserTest = new TestEngine();
 		//Конфигурация
 		UserTest.configTime(60);
+		UserTest.configLives(5);
 		UserTest.defaultScorePerAnswer = 10;
 		UserTest.useSkipThershold = true;
 		UserTest.skipThershold = 15;
@@ -73,7 +74,7 @@
 		UserTest.quests.push({q:"Вы набираете код в определении модели, хотите сделать обязательным для ввода поле password. Подключите модуль, позволяющий использовать Assert . (use ... AS Assert;)", a:"use Symfony\\Component\\Validator\\Constraints AS Assert;"});
 		UserTest.quests.push({q:"Вы набираете код в определении модели, хотите сделать обязательным для ввода поле password. Введите соответcтвующую строку аннотации. (@...)", a:"@Assert\\NotBlank()"});
 		UserTest.quests.push({q:"Измените ответ на предыдущий вопрос так, чтобы сообщение о пустом поле пароля сменилось на \"Password required\".", a:"@Assert\\NotBlank(message=\"Password required\")"});
-		UserTest.quests.push({q:"Вы набираете код в определении модели. Подключите модуль, позволяющий использовать UniqueEntity . (use Symfony\\...;)", a:"use Symfony\\Brige\\Doctrine\\Validator\\Constraints\\UniqueEntity;"});
+		UserTest.quests.push({q:"Вы набираете код в определении модели. Подключите модуль, позволяющий использовать UniqueEntity . (use Symfony\\...;)", a:"use Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity;"});
 		UserTest.quests.push({q:"Вы набираете код в определении модели. В модели есть два поля (one, two), значения каждого из которых должны быть уникальными для каждой записи. Введите соответствующую аннотацию (аннотации) UniqueEntity . (@...[\n@...])", a:"@UniqueEntity(\"one\")\n@UniqueEntity(\"two\")"});
 		UserTest.quests.push({q:"Вы набираете код в определении модели. В модели есть два поля (one, two), значения которых должны быть уникальными для каждой записи (составной ключ). Введите соответствующую аннотацию (аннотации) UniqueEntity . (@...[\n@...])", a:"@UniqueEntity(fields={\"one\", \"two\"})"});
 		UserTest.quests.push({q:"Вы хотите сделать активацию вновь зарегистрированного пользователя по email. Вам необходимо создать класс, реализующий некий интерфейс. Введите название интерфейса.", a:"UserProviderInterface"});
@@ -114,12 +115,13 @@
 		UserTest.quests.push({q:"Вы хотите импортировать настройки из файла parameters.yml бандла AcmeHelloBundle. Введите имя секции в файле /app/config/parameters.yml и соответствующую строку. (имя секции, строка импорта)", a:"imports, - { resource: @AcmeHelloBundle/Resources/config/parameters.yml } "});
 		UserTest.quests.push({q:"В вашем файле parameters.yml задана конфигурация: box1: { subbox1_1: { key1: value32 } }. Как получить значение key1 в контроллере? ($this->...;)", a: "$this->container->getParameter('box1')['subbox1_1']['key1'];"});
 		UserTest.quests.push({q:"Вы хотите использовать SwiftMailer для отправки письма в коде контроллера. Введите инструкцию use подключающую необходимый пакет.", a: "use Symfony\\Bundle\\Swiftmailerbundle\\SwiftmailerBundle;"});
-		UserTest.quests.push({q:"Как в контроллере получить объект для формирования email сообщения (используя swiftmailer)? ($message = ...;)", a: "$message = SwiftMessage::newInstance();"});
-		UserTest.quests.push({q:"$message = SwiftMessage::newInstance(); Перечислите методы объекта message (без аргументов и круглых скобок), позволяющие задать тему письма, текст письма, адрес отправителя, адрес получателя.", a: "setSubject, setBody, setFrom, setTo"});
+		UserTest.quests.push({q:"Как в контроллере получить объект для формирования email сообщения (используя swiftmailer)? ($message = ...;)", a: "$message = Swift_Message::newInstance();"});
+		UserTest.quests.push({q:"$message = Swift_Message::newInstance(); Перечислите методы объекта message (без аргументов и круглых скобок), позволяющие задать тему письма, текст письма, адрес отправителя, адрес получателя.", a: "setSubject, setBody, setFrom, setTo"});
 		UserTest.quests.push({q:"В строке $s у вас содержится html код сообщения. Введите вызов метода $message->setBody позволяющий отправить вам сообщение в формате html  и кодировке UTF-8", a: "$message->setBody($s, \"text/html\", \"UTF-8\");"});
 		UserTest.quests.push({q:"Введите строку php кода, позволяющий отправить вам сообщение $message из контроллера.", a: "$this->get(\"mailer\")->send($message);"});
 		UserTest.quests.push({q:"Введите одной строкой yml конфигурацию swiftmailer, если ваш ящик user_admin@gmail.com, а пароль 123456.", a: "swiftmailer: { transport: gmail, username: user_admin@gmail.com, password: 123456 }"});
-		UserTest.quests.push({q:"Вы хотите наследоваться от шаблона src/Acme/HelloBundle/Resources/views/layout.html.twig. Введите сооответствующую строку twig шаблона. ({% ... %})", a: "{% extends 'AcmeHelloBundle::layout.html.twig' %}"});
+		UserTest.quests.push({q:"Связывание в Doctrine. На вашем сайте пользователи могут добавлять комментарии. Введите аннотацию \"Один ко многим\" для члена класса CUser comments, если автор комментария доступен в классе Acme\\HelloBundle\\Entity\\Comment через член user.", a: "@ORM\\OneToMany(targetEntity=\"Acme\\HelloBundle\\Entity\\Comment\", mappedBy=\"user\")"});
+		//timestamp в doctrine
 		
 
 		//UserTest.randomize = true; //вопросы будут выводится случайным образом

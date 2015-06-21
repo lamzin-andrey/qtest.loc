@@ -6,7 +6,7 @@
 .center {background-color: white; margin:0 auto; padding:0px 0px;}
 .hide {display:none !important}
 .pload {opacity:0; width:1px; height:1px;position:absolute;left:-2px;top:-2px;z-index:1;}
-.danger, .bg-rose {background-color: #FFB0B9; color:#5F3F14;}
+.danger, .bg-rose {background-color: #FFB0B9; color:#5F3F14; padding:6px 10px; }
 .success, .bg-light-green {background-color: #B0FFC2; color:green; padding:6px 10px;}
 .bg-dark-blue {background-color: #9cb0ca;color:black;}
 ul.inline {padding:0; margin:0;}

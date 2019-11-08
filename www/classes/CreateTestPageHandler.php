@@ -85,7 +85,8 @@ class CreateTestPageHandler extends CBaseHandler{
             ), $options);
             unset($options['action']);
             unset($options['next_step_1']);
-            $json_opt = db_escape(json_encode($options));
+            $var = json_encode($options);
+            $json_opt = db_escape($var);
             $sql_query = str_replace('{EXT_FIELDS}', ', options', $sql_query);
             $sql_query = str_replace('{EXT_VALUES}', ", '{$json_opt}'", $sql_query);
             /*echo $sql_query . '<pre>';

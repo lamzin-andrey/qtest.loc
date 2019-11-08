@@ -61,69 +61,7 @@ function json_error() {
 	die(json_encode($data));
 }
 
-
 /**
-* @desc Конвертирует русские буквы в транслит
-*/
-
-function utils_translite ($string)  {
-	$string = @ereg_replace("ё","e",$string);
-	$string = @ereg_replace("й","i",$string);
-	$string = @ereg_replace("ю","u",$string);
-	$string = @ereg_replace("ь","'",$string);
-	$string = @ereg_replace("ч","ch",$string);
-	$string = @ereg_replace("щ","sh",$string);
-	$string = @ereg_replace("ц","c",$string);
-	$string = @ereg_replace("у","y",$string);
-	$string = @ereg_replace("к","k",$string);
-	$string = @ereg_replace("е","e",$string);
-	$string = @ereg_replace("н","n",$string);
-	$string = @ereg_replace("г","g",$string);
-	$string = @ereg_replace("ш","sh",$string);
-	$string = @ereg_replace("з","z",$string);
-	$string = @ereg_replace("х","h",$string);
-	$string = @ereg_replace("ъ","'",$string);
-	$string = @ereg_replace("ф","f",$string);
-	$string = @ereg_replace("ы","w",$string);
-	$string = @ereg_replace("в","v",$string);
-	$string = @ereg_replace("а","a",$string);
-	$string = @ereg_replace("п","p",$string);
-	$string = @ereg_replace("р","r",$string);
-	$string = @ereg_replace("о","o",$string);
-	$string = @ereg_replace("л","l",$string);
-	$string = @ereg_replace("д","d",$string);
-	$string = @ereg_replace("ж","j",$string);
-	$string = @ereg_replace("э","е",$string);
-	$string = @ereg_replace("я","ya",$string);
-	$string = @ereg_replace("с","s",$string);
-	$string = @ereg_replace("м","m",$string);
-	$string = @ereg_replace("и","i",$string);
-	$string = @ereg_replace("т","t",$string);
-	$string = @ereg_replace("б","b",$string);
-	$string = @ereg_replace("Ё","E",$string);
-	$string = @ereg_replace("Й","I",$string);
-	$string = @ereg_replace("Ю","U",$string);
-	$string = @ereg_replace("Ч","CH",$string);
-	$string = @ereg_replace("Ь","'",$string);
-	$string = @ereg_replace("Щ","SH",$string);
-	$string = @ereg_replace("Ц","C",$string);
-	$string = @ereg_replace("У","Y",$string);
-	$string = @ereg_replace("К","K",$string);
-	$string = @ereg_replace("Е","E",$string);
-	$string = @ereg_replace("Н","N",$string);
-	$string = @ereg_replace("Г","G",$string);
-	$string = @ereg_replace("Ш","SH",$string);
-	$string = @ereg_replace("З","Z",$string);
-	$string = @ereg_replace("Х","H",$string);
-	$string = @ereg_replace("Ъ","'",$string);
-	$string = @ereg_replace("Ф","F",$string);
-	$string = @ereg_replace("Ы","W",$string);
-	$string = @ereg_replace("В","V",$string);
-	$string = @ereg_replace("А","A",$string);
-	$string = @ereg_replace("П","P",$string);
-	$string = @ereg_replace("Р","R",$string);
-	$string = @ereg_replace("О","O",$string);
-	$string = @ereg_replace("Л","L",$string);/**
  * @desc Добавляет к корню слова окончание в зависимости от величины числа n
  * @param n - число
  * @param root корень слова
@@ -155,17 +93,7 @@ function utils_translite ($string)  {
          }
          return $lex;
  }
-	$string = @ereg_replace("Д","D",$string);
-	$string = @ereg_replace("Ж","J",$string);
-	$string = @ereg_replace("Э","E",$string);
-	$string = @ereg_replace("Я","YA",$string);
-	$string = @ereg_replace("С","S",$string);
-	$string = @ereg_replace("М","M",$string);
-	$string = @ereg_replace("И","I",$string);
-	$string = @ereg_replace("Т","T",$string);
-	$string = @ereg_replace("Б","B",$string);
-	return $string;
-}
+
  /**
  * @descr 
  * @param
@@ -320,82 +248,95 @@ function utils_getImageMime($path, &$w = null, &$h = null) {
 }
 
 function utils_translite_url ($string)  {
-	$string = @ereg_replace("ё","e",$string);
-	$string = @ereg_replace("й","i",$string);
-	$string = @ereg_replace("ю","yu",$string);
-	$string = @ereg_replace("ь","",$string);
-	$string = @ereg_replace("ч","ch",$string);
-	$string = @ereg_replace("щ","sh",$string);
-	$string = @ereg_replace("ц","c",$string);
-	$string = @ereg_replace("у","u",$string);
-	$string = @ereg_replace("к","k",$string);
-	$string = @ereg_replace("е","e",$string);
-	$string = @ereg_replace("н","n",$string);
-	$string = @ereg_replace("г","g",$string);
-	$string = @ereg_replace("ш","sh",$string);
-	$string = @ereg_replace("з","z",$string);
-	$string = @ereg_replace("х","h",$string);
-	$string = @ereg_replace("ъ","",$string);
-	$string = @ereg_replace("ф","f",$string);
-	$string = @ereg_replace("ы","i",$string);
-	$string = @ereg_replace("в","v",$string);
-	$string = @ereg_replace("а","a",$string);
-	$string = @ereg_replace("п","p",$string);
-	$string = @ereg_replace("р","r",$string);
-	$string = @ereg_replace("о","o",$string);
-	$string = @ereg_replace("л","l",$string);
-	$string = @ereg_replace("д","d",$string);
-	$string = @ereg_replace("ж","j",$string);
-	$string = @ereg_replace("э","е",$string);
-	$string = @ereg_replace("я","ya",$string);
-	$string = @ereg_replace("с","s",$string);
-	$string = @ereg_replace("м","m",$string);
-	$string = @ereg_replace("и","i",$string);
-	$string = @ereg_replace("т","t",$string);
-	$string = @ereg_replace("б","b",$string);
-	$string = @ereg_replace("Ё","E",$string);
-	$string = @ereg_replace("Й","I",$string);
-	$string = @ereg_replace("Ю","YU",$string);
-	$string = @ereg_replace("Ч","CH",$string);
-	$string = @ereg_replace("Ь","",$string);
-	$string = @ereg_replace("Щ","SH",$string);
-	$string = @ereg_replace("Ц","C",$string);
-	$string = @ereg_replace("У","U",$string);
-	$string = @ereg_replace("К","K",$string);
-	$string = @ereg_replace("Е","E",$string);
-	$string = @ereg_replace("Н","N",$string);
-	$string = @ereg_replace("Г","G",$string);
-	$string = @ereg_replace("Ш","SH",$string);
-	$string = @ereg_replace("З","Z",$string);
-	$string = @ereg_replace("Х","H",$string);
-	$string = @ereg_replace("Ъ","",$string);
-	$string = @ereg_replace("Ф","F",$string);
-	$string = @ereg_replace("Ы","I",$string);
-	$string = @ereg_replace("В","V",$string);
-	$string = @ereg_replace("А","A",$string);
-	$string = @ereg_replace("П","P",$string);
-	$string = @ereg_replace("Р","R",$string);
-	$string = @ereg_replace("О","O",$string);
-	$string = @ereg_replace("Л","L",$string);
-	$string = @ereg_replace("Д","D",$string);
-	$string = @ereg_replace("Ж","J",$string);
-	$string = @ereg_replace("Э","E",$string);
-	$string = @ereg_replace("Я","YA",$string);
-	$string = @ereg_replace("С","S",$string);
-	$string = @ereg_replace("М","M",$string);
-	$string = @ereg_replace("И","I",$string);
-	$string = @ereg_replace("Т","T",$string);
-	$string = @ereg_replace("Б","B",$string);
+	$string = str_replace("ё","e",$string);
+	$string = str_replace("й","i",$string);
+	$string = str_replace("ю","yu",$string);
+	$string = str_replace("ь","",$string);
+	$string = str_replace("ч","ch",$string);
+	$string = str_replace("щ","sh",$string);
+	$string = str_replace("ц","c",$string);
+	$string = str_replace("у","u",$string);
+	$string = str_replace("к","k",$string);
+	$string = str_replace("е","e",$string);
+	$string = str_replace("н","n",$string);
+	$string = str_replace("г","g",$string);
+	$string = str_replace("ш","sh",$string);
+	$string = str_replace("з","z",$string);
+	$string = str_replace("х","h",$string);
+	$string = str_replace("ъ","",$string);
+	$string = str_replace("ф","f",$string);
+	$string = str_replace("ы","y",$string);
+	$string = str_replace("в","v",$string);
+	$string = str_replace("а","a",$string);
+	$string = str_replace("п","p",$string);
+	$string = str_replace("р","r",$string);
+	$string = str_replace("о","o",$string);
+	$string = str_replace("л","l",$string);
+	$string = str_replace("д","d",$string);
+	$string = str_replace("ж","j",$string);
+	$string = str_replace("э","e",$string);
+	$string = str_replace("я","ya",$string);
+	$string = str_replace("с","s",$string);
+	$string = str_replace("м","m",$string);
+	$string = str_replace("и","i",$string);
+	$string = str_replace("т","t",$string);
+	$string = str_replace("б","b",$string);
+	$string = str_replace("Ё","E",$string);
+	$string = str_replace("Й","I",$string);
+	$string = str_replace("Ю","YU",$string);
+	$string = str_replace("Ч","CH",$string);
+	$string = str_replace("Ь","",$string);
+	$string = str_replace("Щ","SH",$string);
+	$string = str_replace("Ц","C",$string);
+	$string = str_replace("У","U",$string);
+	$string = str_replace("К","K",$string);
+	$string = str_replace("Е","E",$string);
+	$string = str_replace("Н","N",$string);
+	$string = str_replace("Г","G",$string);
+	$string = str_replace("Ш","SH",$string);
+	$string = str_replace("З","Z",$string);
+	$string = str_replace("Х","H",$string);
+	$string = str_replace("Ъ","",$string);
+	$string = str_replace("Ф","F",$string);
+	$string = str_replace("Ы","Y",$string);
+	$string = str_replace("В","V",$string);
+	$string = str_replace("А","A",$string);
+	$string = str_replace("П","P",$string);
+	$string = str_replace("Р","R",$string);
+	$string = str_replace("О","O",$string);
+	$string = str_replace("Л","L",$string);
+	$string = str_replace("Д","D",$string);
+	$string = str_replace("Ж","J",$string);
+	$string = str_replace("Э","E",$string);
+	$string = str_replace("Я","YA",$string);
+	$string = str_replace("С","S",$string);
+	$string = str_replace("М","M",$string);
+	$string = str_replace("И","I",$string);
+	$string = str_replace("Т","T",$string);
+	$string = str_replace("Б","B",$string);
 	$string = str_replace(" ","_",$string);
 	$string = str_replace('"',"",$string);
-	$string = str_replace('.',"",$string);
+	$string = str_replace('.','',$string);
+	$string = str_replace(',','',$string);
 	$string = str_replace("'","",$string);
-	$string = str_replace(",","",$string);
-	$string = str_replace('\\', "", $string);
-	$string = str_replace('?', "", $string);
-	
-	return strtolower($string);
+	$string = str_replace(",",'',$string);
+	$string = str_replace('\\', '', $string);
+	$string = str_replace('?', '', $string);
+	$string = str_replace('/', '_', $string);
+	$string = str_replace('&', 'and', $string);
+	$allow = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
+	$string =  strtolower($string);
+	$sz = strlen($string);
+	$r = '';
+	for ($i = 0; $i < $sz; $i++) {
+		$ch = $string[$i];
+		if (strpos($allow, $ch) !== false) {
+			$r .= $ch;
+		}
+	}
+	return $r;
 }
+
 
 
 function utils_addScript($script, $code = '', $enc = '') {

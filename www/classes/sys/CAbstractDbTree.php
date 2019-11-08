@@ -287,15 +287,15 @@ class CAbstractDbTree{
 	protected function table($name) {
 		$this->_table = $name;
 		//TODO add cache
-		$cache_key = APP_ROOT . '/files/cache/' . md5($name);
-		if (file_exists($cache_key) && (strtotime(now()) -  filemtime($cache_key) <= APP_CACHE_LIFE) ) {
+		$cacheKey = APP_ROOT . '/files/cache/' . md5($name);
+		/*if (file_exists($cache_key) && (strtotime(now()) -  filemtime($cache_key) <= APP_CACHE_LIFE) ) {
 			$this->_field_types = json_decode( file_get_contents($cache_key) );
 		}
 		
 		$sql_query = "SELECT * FROM {$name} LIMIT 1;";
-		$res = mysql_query($sql_query);
-		if ($res) {
-			while ($row = mysql_fetch_array($res)) {
+		$rows = query($sql_query, $nR);
+		if ($nR) {
+			foreach ($rows as $row) {
 				$fields = array_keys($row);
 				for ($i = 0; $i < count($fields); $i += 2) {
 					$field_name = $fields[$i + 1];
@@ -306,6 +306,14 @@ class CAbstractDbTree{
 			}
 		}
 		file_put_contents($cache_key, json_encode($this->_field_types));
+		*/
+		$data = _db_load_struct_for_table($name);
+		$this->_field_types = [];
+		foreach ($this->_field_types as $sName => $aFieldInfo) {
+			$this->_field_types[$sName] = $aFieldInfo['type'];
+		}
+		file_put_contents($cacheKey, json_encode($this->_field_types));
+		
 	}
 	/**
 	 * @desc строит дерево (структуру данных) с неограниченным уровнем вложенности,

@@ -39,6 +39,7 @@ class UserTestHandler extends CBaseHandler{
             if ($type == 0) {
                 for ($i = 0; $i < $nR; $i++) {
                     $data[$i]['a'] = json_decode( $data[$i]['a'] );
+                    $data[$i]['q'] = str_replace(['<', '>'], ['&lt;', '&gt;'], $data[$i]['q'] );
                 }
             }
             json_ok('list', $data);

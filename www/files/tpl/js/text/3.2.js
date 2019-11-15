@@ -61,6 +61,9 @@
 				if (v == '') {
 					v = '&nbsp;';
 				}
+				v = str_replace('>', '&gt;', v);
+				v = str_replace('<', '&lt;', v);
+				
 				$('#ut_main_tanswer').val('');
 				if ( $('#ut_main_tanswer')[0] ) {
 					$('#ut_main_tanswer')[0].focus();

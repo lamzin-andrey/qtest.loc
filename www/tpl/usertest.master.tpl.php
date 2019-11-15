@@ -17,6 +17,7 @@
 	<script type="text/javascript" src="<?=WEB_ROOT ?>/js/local.js.php"></script>
 	<script type="text/javascript" src="<?=WEB_ROOT ?>/js/lib.js?v=<?=STATIC_VERSION?>"></script>
 	<script type="text/javascript" src="<?=WEB_ROOT ?>/js/popupwin.js?v=<?=STATIC_VERSION?>"></script>
+	<script type="text/javascript" src="<?=WEB_ROOT ?>/js/php2jstranslator/php.js?v=<?=STATIC_VERSION?>"></script>
 	<script type="text/javascript" src="<?=WEB_ROOT ?>/js/app.js?v=<?=STATIC_VERSION?>"></script>
 	<script type="text/javascript" src="<?=WEB_ROOT ?>/js/test-engine/js/testengine.js?v=<?=STATIC_VERSION?>"></script>
 	<?php include APP_ROOT . '/tpl/std/constants.tpl.php'; ?>

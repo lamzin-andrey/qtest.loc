@@ -101,6 +101,8 @@
 				if (v == '') {
 					v = '&nbsp;';
 				}
+				v = str_replace('>', '&gt;', v);
+				v = str_replace('<', '&lt;', v);
 				$('#utest10answer').val('');
 				$("#utest10quest").html(v);
 				if (String(rule) == "undefined") {

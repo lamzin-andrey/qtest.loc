@@ -49,23 +49,29 @@ class QuestionList extends CAbstractDbTree{
 		parent::validate();
 	}
 	
-	protected function req($name) {
-		/*if ($name == 'is_accept') {
-			return '0';
-		}*/
-		$v = parent::req($name);
-		/*if ($name == 'skey') {
-			if (!$v) {
-				json_error('msg', $this->_app->lang['default_error']);
-			}
-			$v = 'quick_start/' . $v;
-		}*/
-		/*$s = str_replace('[/code]', '</pre>', $v);
-		$s = str_replace("[code]\n", '<pre>', $s);
-		$v = str_replace('[code]', '<pre>', $s);*/
-		return $v;
+	protected function req($name)
+	{
+		$field_name = isset($this->_assoc_mirror[$name]) ? $this->_assoc_mirror[$name] : $name;
+		$type = (isset($this->_field_types[$field_name]) ? $this->_field_types[$field_name] : 'string');
+        $v = req($name, $this->_request);
+		switch ($type) {
+			case 'int':
+				return intval($v);
+			case 'float';
+			case 'double';
+				return floatval($v);
+		}
+		$s = str_replace("'", '&quot;', trim(req($name, $this->_request)) );
+		$s = str_replace('<argument', 'ARGTAG', $s);
+		
+		$s = strip_tags($s, '<b><i><u><s><a><ul><li>');
+		$s = str_replace('ARGTAG', '&lt;argument', $s);
+		$s = preg_replace("#union#i", 'un<i></i>ion', $s);
+		return $s;
 	}
-        public function getPerPage() {
-            return $this->_per_page;
-        }
+	
+	public function getPerPage()
+	{
+		return $this->_per_page;
+	}
 }

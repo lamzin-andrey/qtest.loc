@@ -1,5 +1,13 @@
 
 
+https://symfony.com/doc/3.4/security.html#authentication-identifying-logging-in-the-user
+https://symfony.com/doc/3.4/security/entity_provider.html
+
+ - про авторизацию "из коробки". И без неё хрен бы что получилось.
+ 
+Итого, с грехом пополам, логин есть, пока без провайдера.
+Во 2,6 я тоже создавал всё это дело ручками.
+
 
 
 Вопросы касающиеся настройки авторизации, все проверить в отдельном проекте.

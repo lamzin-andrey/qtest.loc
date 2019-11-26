@@ -1,27 +1,11 @@
 
 
-https://symfony.com/doc/3.4/security.html#authentication-identifying-logging-in-the-user
-https://symfony.com/doc/3.4/security/entity_provider.html
-
- - про авторизацию "из коробки". И без неё хрен бы что получилось.
- 
-Итого, с грехом пополам, логин есть, пока без провайдера.
-Во 2,6 я тоже создавал всё это дело ручками.
-
-Пока сменить вопросы по тому, что сделано.
-
-
-
-
-Вопросы касающиеся настройки авторизации, все проверить в отдельном проекте.
- проверить $error = $session->get(Security::AUTHENTICATION_ERROR);		
-	
-
-Введите одной строкой yml конфигурацию swiftmailer, если ваш ящик user_admin@gmail.com, а пароль 123456.
- - передаелать для smpt urk l .env
 
 
 Поля "Ошибка!" и "Правильно!" ломаются при сохранении.
+
+UserTestPageHandler.php : 41 - они уже в json, вероятно что-то не так при сохранении.
+
 Добавить поле для хранения пути к фоновому изображениюю По умолчанию это /img/qtest/sea.jpg
 
 В files/tpl/js/text/3.2.css добавить /** custom_bg */

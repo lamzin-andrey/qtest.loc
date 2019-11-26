@@ -22,45 +22,43 @@ class UserTestPageHandler extends CBaseHandler{
 		$this->css[] = 'create_test';
 		$this->js[] = 'simple';
 		$this->right_inner = 'user_tests.tpl.php';
-                
 		parent::__construct();
-                $id = intval(a($this->_a_url, 2));
-                if ( $id && $this->_isAllowTest($id) ) {
-                    if (a($this->_a_url, 3) == 'questions') {
-                        $this->_is_test_questions_page = true;
-                        
-                    } else {
-                        $this->_is_test_metadata_page= true;
-                        $this->_test_id = $id;
-                        $this->_test_list = new UserTestList($app);
-                        $this->_test_list->setUpdateOwnerCondition($uid = sess('uid'), 'uid');
-                        $fields = '*';
-                        $list = $this->_test_list->getList("u_tests.id = {$id}", $fields, '', 1);
-                        if (is_array($list)) {
-                            $this->test = current($list);
-                            if (a($this->test, 'options')) {
-                                $this->test['options'] = json_decode($this->test['options'], true);
-                                /*echo '<pre>';
-                                print_r($this->test['options']);
-                                echo '</pre>';
-                                die('FILE ' . __FILE__ . ', LINE ' . __LINE__);/**/
-                                $this->test['is_random'] = ( a($this->test['options'], 'is_random') ? a($this->test['options'], 'is_random') : 0);
-                                $this->test['is_skip'] = ( a($this->test['options'], 'is_skip') ? a($this->test['options'], 'is_skip') : 0);
-                                $this->test['show_answer'] = ( a($this->test['options'], 'show_answer') ? a($this->test['options'], 'show_answer') : 0);
-                            }
-                        }
-                    }
-                } else {
-                    $this->_alien_test = true;
-                }
-                
-                if (!$this->_is_test_questions_page) {
-                    $this->_test_list = new UserTestList($app);
-                    $this->_test_list->setUpdateOwnerCondition($uid = sess('uid'), 'uid');
-                    $fields = 't_type, display_name, short_desc, u_tests.is_accepted, u_tests.is_published, reading_uri';
-                    $this->tests = $this->_test_list->getList("u_tests.uid = {$uid}", $fields, '', 1);
-                }
-                $this->_processRequest();
+		$id = intval(a($this->_a_url, 2));
+		if ( $id && $this->_isAllowTest($id) ) {
+			if (a($this->_a_url, 3) == 'questions') {
+				$this->_is_test_questions_page = true;
+			} else {
+				$this->_is_test_metadata_page= true;
+				$this->_test_id = $id;
+				$this->_test_list = new UserTestList($app);
+				$this->_test_list->setUpdateOwnerCondition($uid = sess('uid'), 'uid');
+				$fields = '*';
+				$list = $this->_test_list->getList("u_tests.id = {$id}", $fields, '', 1);
+				if (is_array($list)) {
+					$this->test = current($list);
+					if (a($this->test, 'options')) {
+						$this->test['options'] = json_decode($this->test['options'], true);
+						/*echo '<pre>';
+						print_r($this->test['options']);
+						echo '</pre>';
+						die('FILE ' . __FILE__ . ', LINE ' . __LINE__);/**/
+						$this->test['is_random'] = ( a($this->test['options'], 'is_random') ? a($this->test['options'], 'is_random') : 0);
+						$this->test['is_skip'] = ( a($this->test['options'], 'is_skip') ? a($this->test['options'], 'is_skip') : 0);
+						$this->test['show_answer'] = ( a($this->test['options'], 'show_answer') ? a($this->test['options'], 'show_answer') : 0);
+					}
+				}
+			}
+		} else {
+			$this->_alien_test = true;
+		}
+		
+		if (!$this->_is_test_questions_page) {
+			$this->_test_list = new UserTestList($app);
+			$this->_test_list->setUpdateOwnerCondition($uid = sess('uid'), 'uid');
+			$fields = 't_type, display_name, short_desc, u_tests.is_accepted, u_tests.is_published, reading_uri';
+			$this->tests = $this->_test_list->getList("u_tests.uid = {$uid}", $fields, '', 1);
+		}
+		$this->_processRequest();
 		$this->_setInner();
 	}
         /**

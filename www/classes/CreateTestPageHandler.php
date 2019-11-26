@@ -27,19 +27,19 @@ class CreateTestPageHandler extends CBaseHandler{
 		$this->js[] = 'simple';
 		$this->right_inner = 'create_test.tpl.php';
                 
-                $is_question_page = false;
-                if (a($this->_a_url, 3) == 'questions' && $id ) {
-                    $is_question_page = true;
-                    $this->_question_list = new QuestionList($app);
-                    $this->_question_list->setUpdateOwnerCondition($id, 'u_tests_id');
-                    $uid = sess('uid');
-                    $page = ireq('page') ? ireq('page') : 1;
-                    $this->questions = $this->_question_list->getList("u_tests_content.u_tests_id = {$id}", 'question, answer', '', $page, '', '', false);
-                    
-                    $this->per_page = $this->_question_list->getPerPage();
-                    $this->paging = $this->_question_list->paging;
-                }
-                $this->_processRequest($is_question_page);
+		$is_question_page = false;
+		if (a($this->_a_url, 3) == 'questions' && $id ) {
+			$is_question_page = true;
+			$this->_question_list = new QuestionList($app);
+			$this->_question_list->setUpdateOwnerCondition($id, 'u_tests_id');
+			$uid = sess('uid');
+			$page = ireq('page') ? ireq('page') : 1;
+			$this->questions = $this->_question_list->getList("u_tests_content.u_tests_id = {$id}", 'question, answer', '', $page, '', '', false);
+			
+			$this->per_page = $this->_question_list->getPerPage();
+			$this->paging = $this->_question_list->paging;
+		}
+		$this->_processRequest($is_question_page);
 		$this->_setInner();
 	}
         /**

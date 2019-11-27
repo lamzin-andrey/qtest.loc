@@ -217,3 +217,4 @@ $lang['Save_and_get_questions'] = 'Save_and_get_questions';
 $lang['Add'] = 'Add';
 $lang['Open_test'] = 'Open_test';
 $lang['Moved'] = 'Moved';
+$lang['Test_bgimage'] = 'Фоновое изображение';

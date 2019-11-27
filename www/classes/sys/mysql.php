@@ -103,6 +103,7 @@ function setConnection() {
 function db_escape(&$s) {
 	$s = str_replace('`', '_QUICK_ENGIN__APOSTROF__', $s);
 	$s = str_replace('\'', '`', $s);
+	$s = str_replace('\\', '_QUICK_ENGIN__DSLASH__', $s);
 	return $s;
 }
 function db_set_delta($id, $table, $delta_field = 'delta', $id_field = 'id') {
@@ -149,6 +150,8 @@ function db_unsafeString(&$s) {
     $s = htmlspecialchars_decode($s, ENT_QUOTES);
     $s = str_replace('`', '\'', $s);
 	$s = str_replace('_QUICK_ENGIN__APOSTROF__', '`', $s);
+	$s = str_replace('_QUICK_ENGIN__DSLASH__', '\\', $s);
+	//$s = str_replace('\\', '_QUICK_ENGIN__DSLASH__', $s);
     return $s;
 }
 /**

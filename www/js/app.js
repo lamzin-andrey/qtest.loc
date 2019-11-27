@@ -18,8 +18,23 @@
 			initMainPage();
 			$('#firstLoaderId').remove();
 			$('#firstImgId').remove();
+			
+			//fileUpload
+			//	see also getToken(), setMainError, l()
+			initFileInputs();
 		}
 	);
+	window.getToken = function(){
+		return 'open';
+	}
+	window.setMainError = function(s, a, b) {
+		console.log(s);
+		console.log(a);
+		console.log(b);
+	}
+	window.l = function(s) {
+		return s;
+	}
 	function initNumberFields() {
 		$('input[type=number]').each(
 			function(j, i) {
@@ -624,4 +639,6 @@
 		}
 	}
 	//====================/Ресурсы======================================
+	
+	
 })(jQuery)

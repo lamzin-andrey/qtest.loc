@@ -20,7 +20,11 @@ class UserTestPageHandler extends CBaseHandler{
 		$this->css[] = 'simple';
 		$this->css[] = 'user_tests';
 		$this->css[] = 'create_test';
-		$this->js[] = 'simple';
+		$this->css[] = 'uploadfilewidget/s';
+		$this->js[] = 'simple.js';
+		$this->js[] = 'uploadfilewidget/micron.js';
+		$this->js[] = 'uploadfilewidget/ajax.js';
+		$this->js[] = 'uploadfilewidget/j.js';
 		$this->right_inner = 'user_tests.tpl.php';
 		parent::__construct();
 		$id = intval(a($this->_a_url, 2));

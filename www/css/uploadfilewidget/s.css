@@ -1,0 +1,38 @@
+#chatUploadProcessText {
+	position: absolute;
+	z-index: 31;
+	font-size: 8px;
+	top: 5px;
+	text-align: center;
+	width: 20px;
+	font-family:Arial;
+}
+#chatUploadProcessTokenImage {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 30;
+}
+.chat-upload-token-anim-color {
+	background-color: #42bc42;
+}
+#chatUploadProcessLeftSide, #chatUploadProcessRightSide {
+	width: 10px;
+}
+#chatUploadProcessRightSide {
+	margin-left: 10px;
+}
+.chat-upload-token-anim-block {
+	height: 20px;
+	background-color: gray;
+	width: 20px;
+	display:inline-block;
+	position:relative;
+}
+.chat-upload-label {
+	line-height: 20px!important;
+	vertical-align: top;
+}
+.tsttt{
+	color:red;
+}

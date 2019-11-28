@@ -149,25 +149,41 @@
 		<div class="create_test_skip_success_message"><?=FV::labinp('one_answer_success_message', $lang['Test_one_answer_success_message'], select_test_type_v($handler, 'one_answer_success_message', $lang['ctest_v_is_right']) ); ?></div>
 		<div class="create_test_skip_error_message"><?=FV::labinp('one_answer_fail_message', $lang['Test_one_answer_fail_message'], select_test_type_v($handler, 'one_answer_fail_message', $lang['ctest_v_is_fail']) ); ?></div>
 		<div class="create_test_skip_gameover_message"><?=FV::labinp('gameover_message', $lang['Test_game_over_message'], select_test_type_v($handler, 'gameover_message', $lang['GAME_OVER']) ); ?></div>
-		<div class="create_test_skip_gameover_message">
-			<span class="tsttt">Hello </span>
-			<?//=FV::labinp('bgimage', $lang['Test_bgimage'], a($handler->test, 'bgimage') ); ?>
+		
+		<?php //аплоад файлов ?>
+		<div class="my-3">
+			<span class=""><?=a($lang, 'Select background image, recomended size 1280 х 800')?></span>
 			<label id="chatUploadBtn" class="chat-upload-label">
 				<img class="b " src="/img/std/fileopen.png" width="20" height="20">
 				<input class="hide" type="file" id="chatfile" name="chatfile" 
 					data-url="/chatupload" 
 					data-progress="chatOnUploadProgress" 
-					data-success="chatOnUploadFile" 
+					data-success="testSettingOnUploadFile" 
 					data-fail="chatOnFailUploadFile" 
 					data-select-off="chatOnSelectFile">
-		  </label>
-		  <div id="chatUploadProcessView" class="relative chat-upload-token-anim-block" style="display:none">
-			<div id="chatUploadProcessLeftSide" class="pull-left chat-upload-token-anim-color">&nbsp;</div>
-			<div id="chatUploadProcessRightSide" class="pull-left chat-upload-token-anim-color">&nbsp;</div>
-			<div class="clearfix"></div>
-			<img id="chatUploadProcessTokenImage" src="/img/std/token.png">
-			<div id="chatUploadProcessText" style="">9</div>
-		</div>
+			</label>
+			<div id="chatUploadProcessView" class="relative chat-upload-token-anim-block" style="display:none">
+				<div id="chatUploadProcessLeftSide" class="pull-left chat-upload-token-anim-color">&nbsp;</div>
+				<div id="chatUploadProcessRightSide" class="pull-left chat-upload-token-anim-color">&nbsp;</div>
+				<div class="clearfix"></div>
+				<img id="chatUploadProcessTokenImage" src="/img/std/token.png">
+				<div id="chatUploadProcessText" style="">9</div>
+			</div>
+			<input type="button" id="bSetBgImageDefault" value="<?=a($lang, 'Set deafult')?>">
+			<div class="relative">
+				<input id="bgimage" name="bgimage" type="hidden" value="<?=a($handler->test, 'bgimage')?>">
+				<img id="imgBgImage" src="<?=a($handler->test, 'bgimage')?>" style="max-height:200px; max-width:100%;">
+				<div id="hTextExample" class="text_example absolute" style="color:<?=a($handler->test, 'text_color')?>">
+					<p><?=a($lang, 'QUESTION TEXT')?></p>
+					<p><?=a($lang, 'QUESTION TEXT')?></p>
+					<p><?=a($lang, 'QUESTION TEXT')?></p>
+					<p><?=a($lang, 'QUESTION TEXT')?></p>
+				</div>
+			</div>
+			<div>
+				<label for="text_color"><?=a($lang, 'Select text color')?></label>
+				<input type="color" id="text_color" name="text_color" value="<?=a($handler->test, 'text_color')?>">
+			</div>
 		</div>
 		
 		<div class="right">

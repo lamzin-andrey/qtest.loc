@@ -25,6 +25,7 @@ class UserTestPageHandler extends CBaseHandler{
 		$this->js[] = 'uploadfilewidget/micron.js';
 		$this->js[] = 'uploadfilewidget/ajax.js';
 		$this->js[] = 'uploadfilewidget/j.js';
+		$this->js[] = 'uploadfilewidgetcustom.js';
 		$this->right_inner = 'user_tests.tpl.php';
 		parent::__construct();
 		$id = intval(a($this->_a_url, 2));

@@ -18,7 +18,6 @@ class ChatUpload /*extends BaseApp*/ {
 	private $_isImg = false;
 	
 	public function __construct() {
-		sleep(3);
 		$this->table = 'user_media';
 		if (isset($_FILES['chatfile'])) {
 			$this->_savePhoto($_FILES['chatfile']);

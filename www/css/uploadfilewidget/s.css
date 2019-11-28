@@ -33,6 +33,10 @@
 	line-height: 20px!important;
 	vertical-align: top;
 }
-.tsttt{
-	color:red;
+.pull-left {
+	float: left;
 }
+.pull-right {
+	float: right;
+}
+

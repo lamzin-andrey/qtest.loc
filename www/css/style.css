@@ -111,6 +111,9 @@ footer {
 .relative {
 	position:relative;
 }
+.absolute {
+	position:absolute;
+}
 #tooltip {
 	opacity: 0.0;
 	position:fixed;
@@ -332,4 +335,12 @@ footer {
 #taskPlacePopUpContent {
 	max-width:800px;
 	padding:4px;
+}
+.my-3 {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.text_example {
+	left: 1%;
+	top: 10%;
 }

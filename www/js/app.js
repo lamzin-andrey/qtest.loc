@@ -21,7 +21,9 @@
 			
 			//fileUpload
 			//	see also getToken(), setMainError, l()
-			initFileInputs();
+			if (window.initFileInputs) {
+				initFileInputs();
+			}
 		}
 	);
 	window.getToken = function(){

@@ -57,7 +57,9 @@ class UserTestHandler extends CBaseHandler{
         $testuri = a($a_url, 2);
         $uid = sess('uid');
         $uid = $uid ? $uid : 0;
-        $row = dbrow("SELECT id, t_type, folder, uid, display_name, short_desc, description, info, folder FROM u_tests WHERE reading_uri = '{$testuri}' AND is_deleted = 0 AND ( (is_accepted = 1 AND is_published = 1) OR uid = {$uid} )" );
+        $row = dbrow("SELECT id, t_type, folder, uid, display_name, short_desc, description, info, folder FROM u_tests 
+			WHERE reading_uri = '{$testuri}' AND is_deleted = 0 
+				AND ( (is_accepted = 1 AND is_published = 1) OR uid = {$uid} )" );
         if (a($row, 'folder')) {
             $filename_a = APP_ROOT . '/files/' . $row['folder'] . '/' . $row['uid'] . '.' . $row['id'] . '.';
             $webfile_a = '/files/' . $row['folder'] . '/' . $row['uid'] . '.' . $row['id'] . '.';

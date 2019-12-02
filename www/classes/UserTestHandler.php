@@ -2,6 +2,7 @@
 require_once APP_ROOT . '/classes/sys/CBaseHandler.php';
 class UserTestHandler extends CBaseHandler{
     public $metadata;
+    public $title = '';
 
     public function __construct($app) {
         parent::__construct();
@@ -17,6 +18,7 @@ class UserTestHandler extends CBaseHandler{
                 $this->js[] = WEB_ROOT . '/js/tttest.js?v=' . STATIC_VERSION;
             }
             $this->right_inner = APP_ROOT . $webfile_a . 'tpl.php';
+            $this->title = $this->metadata['display_name'];
         } else {
             //set screen test not found
             utils_404();

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-	<title><?=$app->title()?></title>
+	<title><?=$app->title($handler->title)?></title>
 	<link rel="stylesheet" type="text/css" href="<?=WEB_ROOT ?>/css/styletest.css?v=<?=STATIC_VERSION?>" /><?php
 	if (isset($handler->css) && is_array($handler->css) && count($handler->css)) {
 		foreach ($handler->css as $css){

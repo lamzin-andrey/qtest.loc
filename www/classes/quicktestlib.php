@@ -67,7 +67,7 @@ function _cssBg($sBgImage)
 */
 function _cssTextColor($sTextColorValue)
 {
-	$s = "color: {$sTextColorValue};text-shadow: 1px 1px 0 black,0 0 1px {$sTextColorValue};
+	$s = "color: {$sTextColorValue};text-shadow: 1px 1px 0 black,0 0 1px #000000;
 }";
 	return $s;
 }

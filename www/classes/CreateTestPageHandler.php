@@ -9,6 +9,7 @@ class CreateTestPageHandler extends CBaseHandler{
         public $test; //compatible
         public $paging;
         public $per_page;
+        
 	public function __construct($app) {
 		$app->title($app->lang['Create_test_form_title']);
 		if (!CApplication::userIsAuth()) {

@@ -34,8 +34,8 @@ class CApplication extends CBaseApplication {
 		}
 		switch ($url) {
 			case $work_folder . '/':
-				$this->layout = 'tpl/simple_page.master.tpl.php';
-				$this->handler = $h = $this->_load('SimplePageHandler');
+				$this->layout = 'tpl/main_page.master.tpl.php';
+				$this->handler = $h = $this->_load('MainPageHandler');
 				return;
 			case $work_folder . '/create_test':
 				$this->layout = 'tpl/simple_page.master.tpl.php';

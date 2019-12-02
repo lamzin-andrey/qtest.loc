@@ -1,5 +1,5 @@
 <?php
-/** @desc Функции исключитеьно для сайта quitest.ru*/
+/** @desc Функции исключительно для сайта quitest.ru */
 
 /**
 * @desc Создать файлы теста
@@ -33,10 +33,9 @@ function createTestFiles($test_id, $data, $developer = '') {
            $php = str_replace('{{RIGHT_ANSWER}}', '', $php);
        }
        
-       /*echo '<pre>';
-       print_r($data);
-       echo '</pre>';
-       die('FILE ' . __FILE__ . ', LINE ' . __LINE__);/**/
+       $css = str_replace('/** custom_bg */', _cssBg($data['bgimage']), $css);
+       $css = str_replace('/** text_color */', _cssTextColor($data['text_color']), $css);
+       
        foreach ($data as $key => $item) {
            if (strpos($key, '_message') === false) {
                $item = (int)$item;
@@ -52,4 +51,23 @@ function createTestFiles($test_id, $data, $developer = '') {
    } else {
        die('До вариантов еще как до Китая');
    }
+}
+/**
+ * @description  фоновое изображение и текст
+*/
+function _cssBg($sBgImage)
+{
+	$s = ".main {
+		background-image: url('{$sBgImage}')!important;
+	}";
+	return $s;
+}
+/**
+ * @description  Цвет текста в тесте
+*/
+function _cssTextColor($sTextColorValue)
+{
+	$s = "color: {$sTextColorValue};text-shadow: 1px 1px 0 black,0 0 1px {$sTextColorValue};
+}";
+	return $s;
 }

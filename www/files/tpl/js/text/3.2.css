@@ -1,6 +1,8 @@
+/** custom_bg */
+
 /* hello screen */
 .utframe {
-    color:brown;
+    /** text_color */
 }
 #ut_short_desc, #ut_title, #ut_main_tSuccess, #ut_main_tSuccessInfo {
     border:rgba(255,255,255, 0.5) 5px solid;
@@ -63,7 +65,7 @@
 #ut_main_tquest {
    width:45%;
    font-size:200%;
-   color:brown;
+   /** text_color */
    padding:25px 10px;
 }
 

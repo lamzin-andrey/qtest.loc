@@ -4,11 +4,11 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 	<title><?=$app->title()?></title>
 	<link rel="stylesheet" type="text/css" href="<?=WEB_ROOT ?>/css/style.css?v=<?=STATIC_VERSION?>" />
-	<link rel="stylesheet" type="text/css" href="<?=WEB_ROOT ?>/css/popupwin.css?v=<?=STATIC_VERSION?>" /><?
+	<link rel="stylesheet" type="text/css" href="<?=WEB_ROOT ?>/css/popupwin.css?v=<?=STATIC_VERSION?>" /><?php 
 	if (isset($handler->css) && is_array($handler->css) && count($handler->css)) {
 		foreach ($handler->css as $css){
 		?><link rel="stylesheet" type="text/css" href="<?=WEB_ROOT ?>/css/<?=$css?>.css?v=<?=STATIC_VERSION?>" />
-<?
+<?php 
 		}
 	}
 	?><script type="text/javascript" src="<?=WEB_ROOT ?>/js/jquery-1.11.0.min.js"></script>
@@ -17,37 +17,34 @@
 	<script type="text/javascript" src="<?=WEB_ROOT ?>/js/local.js.php"></script>
 	<script type="text/javascript" src="<?=WEB_ROOT ?>/js/lib.js?v=<?=STATIC_VERSION?>"></script>
 	<script type="text/javascript" src="<?=WEB_ROOT ?>/js/app.js?v=<?=STATIC_VERSION?>"></script>
-	<? include APP_ROOT . '/tpl/std/constants.tpl.php'; ?>
-	<?
+	<?php  include APP_ROOT . '/tpl/std/constants.tpl.php'; ?>
+	<?php 
 	if (isset($handler->js) && is_array($handler->js) && count($handler->js)) {
 		foreach ($handler->js as $js){
 		?><script type="text/javascript" charset="UTF-8" src="<?=WEB_ROOT ?>/js/<?=$js?>?v=<?=STATIC_VERSION?>"></script>
-	<?
+	<?php 
 		}
 	}
 	?>		
-<?php if (sess('messages')):?>
+<?php  if (sess('messages')):?>
 	<script type="text/javascript">
 		var infoMessages = <?=json_encode(sess('messages'))?>;
-		<? unset($_SESSION['messages']);?>
+		<?php  unset($_SESSION['messages']);?>
 	</script>
-<? else:?>
+<?php  else:?>
 	<script type="text/javascript">
 		var infoMessages = {};
 	</script>
-<? endif ?>
+<?php  endif ?>
 </head>
 <body><img src="/img/std/back_text.png" class="pload" />
-<div class="toolbar">
-	<? include APP_ROOT . '/tpl/std/toolbar.php'?>
-</div>
 	<div class="main center relative scroll-y">
 		<div class="fixed_toolbar_placer">&nbsp;</div>
-		<? include APP_ROOT . '/tpl/std/form_auth.tpl.php' ?>
+		<?php  include APP_ROOT . '/tpl/std/form_auth.tpl.php' ?>
 		
 		<div id="tooltip" class="right bg-dark-blue"></div>
 		<div class="simple_page_content">
-			<?
+			<?php 
 				if (isset($handler->right_inner)) {
 					include APP_ROOT . '/tpl/' . $handler->right_inner;
 				}
@@ -58,7 +55,7 @@
 		</footer>
 	</div>
 	
-	<?//popupwin?>
+	<?php //popupwin?>
 	<div id="ldrbig" class="hide">
 		<img src="<?=WEB_ROOT ?>/img/std/ploader.gif" />
 	</div>
@@ -74,7 +71,7 @@
 		<div class="both"></div>
 		<div class="popup-content" id="appWindowPopup"></div>
 	</div>
-	<?// /popupwin?>
-	<? include APP_ROOT . '/tpl/std/form_reg.tpl.php' ?>
+	<?php // /popupwin?>
+	<?php  include APP_ROOT . '/tpl/std/form_reg.tpl.php' ?>
 </body>
 </html> 

@@ -219,7 +219,10 @@ $lang['Open_test'] = 'Open_test';
 $lang['Moved'] = 'Moved';
 $lang['Test_bgimage'] = 'Фоновое изображение';
 $lang['Set deafult'] = 'Восстановить умолчания';
-$lang['QUESTION TEXT'] = 'ТЕКСТ ВОПРОСА';
+$lang['QUESTION TEXT'] = 'ТЕКСТ ТЕКСТ';
 $lang['Select text color'] = 'Выберите цвет текста';
 $lang['Select background image, recomended size 1280 х 800'] = 'Выберите фоновое изображение для теста, рекомендуемый размер 1280 х 800';
+$lang['Select background transparency'] = 'Выберите прозрачность фона';
+$lang['Show text border'] = 'Показывать границу текста';
+$lang['Select border text color'] = 'Выберите цвет границы (рамки) текста';
 

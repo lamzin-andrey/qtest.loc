@@ -81,6 +81,9 @@ class CreateTestPageHandler extends CBaseHandler{
             $data['test_description'] = db_safeString($data['test_description']);
             $data['reading_uri'] = $data['t_name'] = utils_translite_url($data['display_name']);
             $data['folder'] = date('Y/m');
+            $data['bg_alpha'] = 25;
+            $data['text_color'] = '#a62828';
+            $data['is_text_border_on'] = 0;
             $sql_query = db_createInsertQueryExt($data, 'u_tests', array(
                 'test_description' => 'description'
             ), $options);
@@ -211,4 +214,5 @@ class CreateTestPageHandler extends CBaseHandler{
             }
             json_ok('id', 0);
         }
+     
 }

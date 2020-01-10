@@ -2,7 +2,7 @@
 /** ctrl UserTestPageHandler */
     function select_test_type_v($handler, $k, $default) {
         $h = $handler;
-        return ( a($h->test['options'], $k) !== null ? a($h->test['options'], $k) : $default );
+        return ( a( a($h->test, 'options'), $k) !== null ? a( a($h->test, 'options'), $k) : $default );
     }
 /*Шаблон в /opt/lampp/htdocs/qtest.loc/www/files/tpl/js/template/*/
 ?><div class="promo">
@@ -151,6 +151,7 @@
 		<div class="create_test_skip_gameover_message"><?=FV::labinp('gameover_message', $lang['Test_game_over_message'], select_test_type_v($handler, 'gameover_message', $lang['GAME_OVER']) ); ?></div>
 		
 		<?php //аплоад файлов ?>
+		<?php if (o($handler, 'isEdit') ): ?>
 		<div class="my-3">
 			<span class=""><?=a($lang, 'Select background image, recomended size 1280 х 800')?></span>
 			<label id="chatUploadBtn" class="chat-upload-label">
@@ -173,9 +174,7 @@
 			<div class="relative">
 				<input id="bgimage" name="bgimage" type="hidden" value="<?=a($handler->test, 'bgimage')?>">
 				<img id="imgBgImage" src="<?=a($handler->test, 'bgimage')?>" style="max-height:200px; max-width:100%;">
-				<div id="hTextExample" class="text_example absolute" style="color:<?=a($handler->test, 'text_color')?>">
-					<p><?=a($lang, 'QUESTION TEXT')?></p>
-					<p><?=a($lang, 'QUESTION TEXT')?></p>
+				<div id="hTextExample" class="text_example absolute" style="color:<?=a($handler->test, 'text_color')?>; background-color:rgba(255, 255, 255, <?=intval(a($handler->test, 'bg_alpha')) / 100 ?>); <?=$handler->getTextBorder() ?>; font-size:38px;">
 					<p><?=a($lang, 'QUESTION TEXT')?></p>
 					<p><?=a($lang, 'QUESTION TEXT')?></p>
 				</div>
@@ -184,7 +183,20 @@
 				<label for="text_color"><?=a($lang, 'Select text color')?></label>
 				<input type="color" id="text_color" name="text_color" value="<?=a($handler->test, 'text_color')?>">
 			</div>
+			<div>
+				<label for="bg_alpha"><?=a($lang, 'Select background transparency')?> <span id="bg_alpha_dv">(<?=intval(a($handler->test, 'bg_alpha')) / 100 ?>)</span></label>
+				<input type="range" id="bg_alpha" name="bg_alpha" value="<?=a($handler->test, 'bg_alpha')?>" min="0", max="100">
+			</div>
+			<div>
+				<input type="checkbox" id="is_text_border_on" name="is_text_border_on" value="1" <?=(intval(a($handler->test, 'is_text_border_on')) ? 'checked="checked"' : '')  ?>>
+				<label for="is_text_border_on"><?=a($lang, 'Show text border')?></label>
+			</div>
+			<div>
+				<label for="text_border_color"><?=a($lang, 'Select border text color')?></label>
+				<input type="color" id="text_border_color" name="text_border_color" value="<?=a($handler->test, 'text_border_color')?>">
+			</div>
 		</div>
+		<?php endif ?>
 		
 		<div class="right">
 			<?php if (a($handler->test, 'id') ): ?>

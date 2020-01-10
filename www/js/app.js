@@ -19,11 +19,13 @@
 			$('#firstLoaderId').remove();
 			$('#firstImgId').remove();
 			
-			//fileUpload
+			//fileUpload Превью экрана теста
 			//	see also getToken(), setMainError, l()
 			if (window.initFileInputs) {
 				initFileInputs();
 			}
+			//Прозрачность фона, цвет рамки текста, включение / выключение рамки текста
+			initSetPreviewStyleInput();
 		}
 	);
 	window.getToken = function(){
@@ -642,5 +644,39 @@
 	}
 	//====================/Ресурсы======================================
 	
+	function initSetPreviewStyleInput() {
+		var input = $('#bg_alpha'), 
+			iFrameOn = $('#is_text_border_on'),
+			iTextBorderColor = $('#text_border_color');
+		input.on('input', onChangeTransparent);
+		iTextBorderColor.on('input', onChangeTextBorderColor);
+		iFrameOn.on('input', onChangeTextFrameOn);
+	}
 	
+	function onChangeTransparent(evt) {
+		var hDisplayValue = $('#bg_alpha_dv'),
+			hBlock = $('#hTextExample')[0],
+			inp = evt.target,
+			v = inp.value / 100;
+		hDisplayValue.html(v);
+		hBlock.style.backgroundColor = 'rgba(255, 255, 255, ' + v + ')';
+	}
+	function onChangeTextBorderColor(evt) {
+		_setTextBorderOnPreview();
+	}
+	function onChangeTextFrameOn(evt){
+		_setTextBorderOnPreview()
+	}
+	function _setTextBorderOnPreview(){
+		var bFrameOn = $('#is_text_border_on').prop('checked'),
+			sTextBorderColor = $('#text_border_color').val(), 
+			hBlock = $('#hTextExample')[0],
+			tShadowValue = '';
+		if (bFrameOn) {
+			tShadowValue = '1px 1px 0 ' + sTextBorderColor + ', 0 0 1px ' + sTextBorderColor;
+			hBlock.style.textShadow = tShadowValue;
+		} else {
+			hBlock.style.textShadow = null;
+		}
+	}
 })(jQuery)

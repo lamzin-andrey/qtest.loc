@@ -3,6 +3,7 @@ require_once APP_ROOT . '/classes/quicktestlib.php';
 require_once APP_ROOT . '/classes/sys/CBaseHandler.php';
 require_once APP_ROOT . '/classes/user_tests/UserTestList.php';
 class UserTestPageHandler extends CBaseHandler{
+		public  $isEdit = 1;
         private $_test_list;
         private $_is_test_metadata_page = false;
         private $_is_test_questions_page = false;
@@ -100,6 +101,11 @@ class UserTestPageHandler extends CBaseHandler{
         */
         private function _saveTestData(&$data) {
             $data = db_mapPost('u_tests');
+            if (!isset($data['is_text_border_on'])) {
+				$data['is_text_border_on'] = '0';
+			}
+            /*var_dump($data);
+            die();/**/
             $data['test_description'] = db_safeString($data['test_description']);
             //$data['reading_uri'] = $data['t_name'] = utils_translite_url($data['display_name']);
             //$data['folder'] = date('Y/m');
@@ -144,7 +150,7 @@ class UserTestPageHandler extends CBaseHandler{
          * @desc Сохранить вопрос
         */
         private function _saveQuestion() {
-            //check permission TODO ОЧЕНЬ ПОХОЖЕ НА ДЫРУ!
+            //check permission
             $test_id = intval(a($this->_a_url, 2));
             $v = dbvalue("SELECT uid FROM u_tests WHERE id = {$test_id}");
             if ($v == sess('uid')) {
@@ -155,11 +161,24 @@ class UserTestPageHandler extends CBaseHandler{
             json_error($lang['Question_Permission_denied']);
         }
         
-        private function _isAllowTest($test_id) {
-            $v = dbvalue("SELECT uid FROM u_tests WHERE id = {$test_id}");
-            if ($v == sess('uid')) {
-                return true;
-            }
-            return false;
-        }
+	private function _isAllowTest($test_id) {
+		$v = dbvalue("SELECT uid FROM u_tests WHERE id = {$test_id}");
+		if ($v == sess('uid')) {
+			return true;
+		}
+		return false;
+	}
+	/**
+	 * Возвращает css правило вида 'text-shadow: 1px 1px 0 #000000, 0 0 1px #000000'
+	 * в зависимости от того, включена ли рамка у текста и выбранного цвета
+	*/
+	public function getTextBorder() : string
+	{
+		$isOn = intval($this->test['is_text_border_on']);
+		if ($isOn) {
+			$c = $this->test['text_border_color'];
+			return 'text-shadow: 1px 1px 0 ' . $c . ', 0 0 1px ' . $c;
+		}
+		return '';
+	}
 }

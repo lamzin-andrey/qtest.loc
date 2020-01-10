@@ -433,6 +433,18 @@ function utils_capitalize($s) {
 	$tail = mb_substr($s, 1, 1000000, $enc);
 	return ($first_char . $tail);
 }
+function utils_createDir($sDir) {
+	$a = explode('/', $sDir);
+	$aB = ['/'];
+	foreach ($a as $s) {
+		$aB[] = $s;
+		$sPath = join('', $aB);
+		if (!file_exists($sPath)) {
+			@mkdir($sPath, 755);
+		}
+		$aB[] = '/';
+	}
+}
 /**
  * @desc строит дерево (структуру данных) с неограниченным уровнем вложенности,
  * @param array $raw_data - не ассоциативный массив с данными TODO разнести на две функции
@@ -586,7 +598,9 @@ function utils_getFilePath($app_root, $tmp_file, $src_file_name, &$is_image, $de
 	}
 	if ($ext) {
 		$md5 = md5('YmdHis'.$src_file_name);
-		return "{$folder}{$md5}.{$ext}";
+		$sResult = "{$folder}{$md5}.{$ext}";
+		utils_createDir($folder);
+		return $sResult;
 	}
 	return false;
 }
